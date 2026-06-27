@@ -77,7 +77,7 @@
       "hasCourseInstance": {
         "@type": "CourseInstance",
         "courseMode": "in-person",
-        "startDate": "2026-08-01",
+        "startDate": "2026-08",
         "location": {
           "@type": "Place",
           "name": "Dallas–Fort Worth area (exact location shared before enrollment)",
@@ -85,7 +85,7 @@
         },
         "offers": {
           "@type": "Offer",
-          "price": "299",
+          "price": "199",
           "priceCurrency": "USD",
           "category": "monthly",
           "availability": "https://schema.org/PreOrder"
@@ -183,6 +183,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    ============================================================ */
 .wrap{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
 .section{padding-block:clamp(56px,9vw,120px)}
+/* Offset anchor jumps so targets land below the sticky nav, not under it */
+section[id],[id="apply"]{scroll-margin-top:calc(var(--nav-h) + 18px)}
 .section--tight{padding-block:clamp(40px,6vw,72px)}
 .on-dark{background:var(--ink);color:var(--white)}
 .on-paper{background:var(--paper)}
@@ -451,6 +453,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .pricecard .amt{font-family:var(--display);font-size:clamp(4rem,12vw,7rem);line-height:.85}
 .pricecard .per{font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.82rem;color:var(--muted-dark);margin-top:8px}
 .pricecard .note{margin-top:18px;font-size:.9rem;color:var(--muted-dark)}
+.pricecard__badge{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:20px}
+.pricecard .was{font-size:1.05rem;color:var(--muted-dark);margin-bottom:6px}
+.pricecard .was s{text-decoration-thickness:2px;opacity:.85}
+.pricecard .lock{color:var(--accent)}
 .pricelist li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);font-size:.98rem}
 .pricelist li:last-child{border-bottom:0}
 .pricelist .tick{flex:0 0 auto;width:8px;height:8px;background:var(--accent);border-radius:2px;margin-top:8px}
@@ -679,7 +685,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
         <a class="btn btn--lg" href="#apply" data-cta="primary">Apply in 2 minutes</a>
         <a class="btn btn--ghost btn--lg" href="#program" data-cta="secondary">See how the program works</a>
       </div>
-      <p class="hero__urgency"><span class="pulse" aria-hidden="true"></span><span>Applications are now open. Training begins August 1, 2026. Space is limited to sixteen athletes in the founding class.</span></p>
+      <p class="hero__urgency"><span class="pulse" aria-hidden="true"></span><span>Applications are now open. Training begins August 2026. Space is limited to sixteen athletes in the founding class.</span></p>
     </div>
   </div>
 </section>
@@ -752,7 +758,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
     <dl class="detail-grid reveal">
       <div class="detail">
         <dt>Start date</dt>
-        <dd>Sat · Aug 1<span class="small">2026</span></dd>
+        <dd>August 2026<span class="small">Exact start date shared with accepted families.</span></dd>
       </div>
       <div class="detail">
         <dt>Format</dt>
@@ -764,11 +770,11 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
       </div>
       <div class="detail">
         <dt>Schedule</dt>
-        <dd>Saturday sessions<span class="small">Final session times will be based on age, position, cohort placement, and facility availability.</span></dd>
+        <dd>Weekly sessions<span class="small">Day and time will be based on age, position, cohort placement, and facility availability.</span></dd>
       </div>
       <div class="detail">
         <dt>Investment</dt>
-        <dd>$299 / month<span class="small">Billed monthly, ongoing.</span></dd>
+        <dd>$199 / month<span class="small">Founding rate, locked for life. Regular price $299 / month.</span></dd>
       </div>
       <div class="detail">
         <dt>Capacity</dt>
@@ -1083,9 +1089,11 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
     </div>
     <div class="price">
       <div class="pricecard reveal">
-        <div class="amt">$299</div>
-        <div class="per">Per month</div>
-        <p class="note">Ongoing monthly membership · billed monthly</p>
+        <span class="pricecard__badge">Founding rate</span>
+        <p class="was">Regular price <s>$299/mo</s></p>
+        <div class="amt">$199</div>
+        <div class="per">Per month · <span class="lock">locked for life</span></div>
+        <p class="note">Founding-class families keep this $199/month rate for as long as their athlete stays enrolled—even after the price rises to $299 following the founding class.</p>
         <a class="btn btn--block" href="#apply" data-cta="primary" style="margin-top:24px">Apply now</a>
         <p class="note" style="margin-top:14px">No payment is required to submit an application. Accepted athletes will receive a private enrollment link to secure their place.</p>
       </div>
@@ -1162,7 +1170,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
       <div class="faq__item">
         <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-2" id="faqb-2">What ages can apply?<span class="ico" aria-hidden="true"></span></button></h3>
         <div class="faq__panel" id="faq-2" role="region" aria-labelledby="faqb-2"><div>
-          <p>The initial program is expected to serve female athletes approximately 10–17 years old. Final cohorts will be grouped according to age, physical maturity, experience, position, developmental priorities, and competitive fit.</p>
+          <p>The initial program is designed for female athletes ages 12 to 18. Final cohorts will be grouped according to age, physical maturity, experience, position, developmental priorities, and competitive fit.</p>
         </div></div>
       </div>
 
@@ -1234,14 +1242,14 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
       <div class="faq__item">
         <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-12" id="faqb-12">When does the program begin?<span class="ico" aria-hidden="true"></span></button></h3>
         <div class="faq__panel" id="faq-12" role="region" aria-labelledby="faqb-12"><div>
-          <p>The first official training session is scheduled for Saturday, August 1, 2026. Accepted families may also be invited to an assessment and parent orientation on July 25, 2026.</p>
+          <p>The first official training session is scheduled for August 2026. Accepted families may also be invited to an assessment and parent orientation beforehand.</p>
         </div></div>
       </div>
 
       <div class="faq__item">
         <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-13" id="faqb-13">How much does it cost?<span class="ico" aria-hidden="true"></span></button></h3>
         <div class="faq__panel" id="faq-13" role="region" aria-labelledby="faqb-13"><div>
-          <p>F3 Flag is $299 per month, billed monthly on an ongoing basis. No payment is required until an athlete has been accepted.</p>
+          <p>Founding-class athletes pay $199 per month, billed monthly, and keep that founding rate for as long as they stay enrolled. The regular price after the founding class is $299 per month. No payment is required until an athlete has been accepted.</p>
         </div></div>
       </div>
 
@@ -1267,7 +1275,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
     </h2>
     <p class="lead reveal">Learn within a small-group development program supported by coaches with experience in professional football, elite flag competition, professional women's sports, championship play, quarterback development, receiver development, defensive back technique, leadership, and high-performance environments. The opportunity is not reserved for the athlete with the biggest name. It is for the athlete ready to work.</p>
     <div class="reveal"><a class="btn btn--lg" href="#apply" data-cta="primary">Apply now</a></div>
-    <p class="fine reveal">Training begins August 1. Applications are reviewed for commitment, coachability, position fit, availability, developmental need, and cohort composition.</p>
+    <p class="fine reveal">Training begins August 2026. Applications are reviewed for commitment, coachability, position fit, availability, developmental need, and cohort composition.</p>
     <!-- Program philosophy (not an attributed quote): "Talent may get attention. Preparation is what allows an athlete to keep progressing." -->
     <p class="fine reveal" style="margin-top:18px;font-style:italic">Program philosophy: Talent may get attention. Preparation is what allows an athlete to keep progressing.</p>
   </div>
@@ -1387,11 +1395,6 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
               <p class="err" id="err-a_dob"></p>
             </div>
             <div class="field">
-              <label for="a_age">Current age <span class="req" aria-hidden="true">*</span></label>
-              <input id="a_age" name="athlete_age" type="number" min="6" max="19" required inputmode="numeric" />
-              <p class="err" id="err-a_age"></p>
-            </div>
-            <div class="field">
               <label for="a_grad">Graduation year <span class="req" aria-hidden="true">*</span></label>
               <input id="a_grad" name="grad_year" type="number" min="2026" max="2040" required inputmode="numeric" placeholder="e.g. 2031" />
               <p class="err" id="err-a_grad"></p>
@@ -1437,109 +1440,14 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
           </div>
         </fieldset>
 
-        <!-- ===== Development questions ===== -->
-        <fieldset>
-          <legend class="fs-head">Development questions</legend>
-          <p class="fs-sub">These answers help us understand fit and developmental priorities.</p>
-          <div class="field">
-            <label for="d_improve">What does your athlete most want to improve? <span class="req" aria-hidden="true">*</span></label>
-            <textarea id="d_improve" name="q_improve" required></textarea>
-            <p class="err" id="err-d_improve"></p>
-          </div>
-          <div class="field">
-            <label for="d_why">Why is your athlete interested in F3? <span class="req" aria-hidden="true">*</span></label>
-            <textarea id="d_why" name="q_why" required></textarea>
-            <p class="err" id="err-d_why"></p>
-          </div>
-          <div class="field">
-            <label for="d_serious">What does being a serious athlete mean to your family? <span class="hint">(optional)</span></label>
-            <textarea id="d_serious" name="q_serious"></textarea>
-          </div>
-          <div class="field">
-            <label for="d_coaching">How does your athlete typically respond to direct coaching? <span class="req" aria-hidden="true">*</span></label>
-            <textarea id="d_coaching" name="q_coaching" required></textarea>
-            <p class="err" id="err-d_coaching"></p>
-          </div>
-          <div class="field">
-            <label for="d_outside">One example of your athlete working to improve outside team practice <span class="hint">(optional)</span></label>
-            <textarea id="d_outside" name="q_outside"></textarea>
-          </div>
-          <div class="field">
-            <label for="d_strengths">What are your athlete's current strengths? <span class="hint">(optional)</span></label>
-            <textarea id="d_strengths" name="q_strengths"></textarea>
-          </div>
-          <div class="field">
-            <label for="d_areas">What areas have coaches identified for improvement? <span class="hint">(optional)</span></label>
-            <textarea id="d_areas" name="q_areas"></textarea>
-          </div>
-          <div class="field">
-            <label for="d_success">What would make F3 Flag successful for your athlete? <span class="hint">(optional)</span></label>
-            <textarea id="d_success" name="q_success"></textarea>
-          </div>
-          <div class="field">
-            <label for="d_medical">Any injuries, physical limitations, allergies, accessibility needs, or medical considerations the coaching staff should know about? <span class="hint">(optional)</span></label>
-            <textarea id="d_medical" name="q_medical" aria-describedby="medical-note"></textarea>
-            <p class="hint" id="medical-note">Kept private for the coaching staff only. Never shown publicly or used for marketing.</p>
-          </div>
-        </fieldset>
-
-        <!-- ===== Availability ===== -->
-        <fieldset>
-          <legend class="fs-head">Availability</legend>
-          <div class="grid2">
-            <div class="field">
-              <label for="av_sat">Can the athlete attend Saturday sessions beginning Aug 1? <span class="req" aria-hidden="true">*</span></label>
-              <select id="av_sat" name="avail_saturday" required>
-                <option value="">Select one…</option><option>Yes</option><option>Most Saturdays</option><option>No / unsure</option>
-              </select>
-              <p class="err" id="err-av_sat"></p>
-            </div>
-            <div class="field">
-              <label for="av_orient">Can the athlete attend an assessment / orientation on July 25? <span class="req" aria-hidden="true">*</span></label>
-              <select id="av_orient" name="avail_orientation" required>
-                <option value="">Select one…</option><option>Yes</option><option>Probably</option><option>No / unsure</option>
-              </select>
-              <p class="err" id="err-av_orient"></p>
-            </div>
-            <div class="field">
-              <label for="av_window">Preferred session window <span class="hint">(optional)</span></label>
-              <select id="av_window" name="preferred_window">
-                <option value="">No preference</option><option>Morning</option><option>Midday</option><option>Afternoon</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="av_allweeks">Can the athlete attend weekly Saturday sessions consistently? <span class="req" aria-hidden="true">*</span></label>
-              <select id="av_allweeks" name="avail_all_weeks" required>
-                <option value="">Select one…</option><option>Yes</option><option>Most weeks</option><option>No / unsure</option>
-              </select>
-              <p class="err" id="err-av_allweeks"></p>
-            </div>
-            <div class="field">
-              <label for="av_othersport">Will the athlete participate in another sport during the program? <span class="hint">(optional)</span></label>
-              <select id="av_othersport" name="concurrent_sport">
-                <option value="">Select one…</option><option>No</option><option>Yes</option>
-              </select>
-            </div>
-            <div class="field full">
-              <label for="av_conflicts">Known recurring scheduling conflicts <span class="hint">(optional)</span></label>
-              <textarea id="av_conflicts" name="schedule_conflicts"></textarea>
-            </div>
-          </div>
-        </fieldset>
-
         <!-- ===== Commitment confirmations (required checkboxes) ===== -->
         <fieldset>
           <legend class="fs-head">Commitment confirmations</legend>
-          <p class="fs-sub">Please confirm the following. All are required to submit.</p>
+          <p class="fs-sub">Please confirm the following. All are required to submit — checking these is not a payment, and nothing is charged unless your athlete is accepted.</p>
           <div class="checks" id="confirmGroup">
-            <label class="check"><input type="checkbox" name="c_application" required /><span>We understand this is an application-based program.</span></label>
+            <label class="check"><input type="checkbox" name="c_cost" required /><span>We understand the founding rate is $199 per month, billed monthly and locked for life while enrolled (regular price $299 per month).</span></label>
             <label class="check"><input type="checkbox" name="c_noguarantee" required /><span>We understand submitting an application does not guarantee acceptance.</span></label>
-            <label class="check"><input type="checkbox" name="c_fullphase" required /><span>We can commit to consistent weekly attendance.</span></label>
-            <label class="check"><input type="checkbox" name="c_cost" required /><span>We understand the program is $299 per month, billed monthly on an ongoing basis.</span></label>
-            <label class="check"><input type="checkbox" name="c_missed" required /><span>We understand missed sessions are not automatically refunded or credited.</span></label>
-            <label class="check"><input type="checkbox" name="c_interest" required /><span>The athlete is personally interested in participating.</span></label>
             <label class="check"><input type="checkbox" name="c_comms" required /><span>We agree to receive application-related email and text communication.</span></label>
-            <label class="check"><input type="checkbox" name="c_accurate" required /><span>We certify that the information in this application is accurate.</span></label>
             <label class="check"><input type="checkbox" name="c_waivers" required /><span>We understand that waivers and additional enrollment documents will be required if accepted.</span></label>
           </div>
           <p class="err" id="err-confirmGroup"></p>
