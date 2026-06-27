@@ -85,7 +85,7 @@
         },
         "offers": {
           "@type": "Offer",
-          "price": "299",
+          "price": "199",
           "priceCurrency": "USD",
           "category": "monthly",
           "availability": "https://schema.org/PreOrder"
@@ -451,6 +451,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .pricecard .amt{font-family:var(--display);font-size:clamp(4rem,12vw,7rem);line-height:.85}
 .pricecard .per{font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.82rem;color:var(--muted-dark);margin-top:8px}
 .pricecard .note{margin-top:18px;font-size:.9rem;color:var(--muted-dark)}
+.pricecard__badge{display:inline-block;background:var(--accent);color:#fff;font-weight:800;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:20px}
+.pricecard .was{font-size:1.05rem;color:var(--muted-dark);margin-bottom:6px}
+.pricecard .was s{text-decoration-thickness:2px;opacity:.85}
+.pricecard .lock{color:var(--accent)}
 .pricelist li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);font-size:.98rem}
 .pricelist li:last-child{border-bottom:0}
 .pricelist .tick{flex:0 0 auto;width:8px;height:8px;background:var(--accent);border-radius:2px;margin-top:8px}
@@ -768,7 +772,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
       </div>
       <div class="detail">
         <dt>Investment</dt>
-        <dd>$299 / month<span class="small">Billed monthly, ongoing.</span></dd>
+        <dd>$199 / month<span class="small">Founding rate, locked for life. Regular price $399 / month.</span></dd>
       </div>
       <div class="detail">
         <dt>Capacity</dt>
@@ -1083,9 +1087,11 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
     </div>
     <div class="price">
       <div class="pricecard reveal">
-        <div class="amt">$299</div>
-        <div class="per">Per month</div>
-        <p class="note">Ongoing monthly membership · billed monthly</p>
+        <span class="pricecard__badge">Founding rate</span>
+        <p class="was">Regular price <s>$399/mo</s></p>
+        <div class="amt">$199</div>
+        <div class="per">Per month · <span class="lock">locked for life</span></div>
+        <p class="note">Founding-class families keep this $199/month rate for as long as their athlete stays enrolled—even after the price rises to $399 following the founding class.</p>
         <a class="btn btn--block" href="#apply" data-cta="primary" style="margin-top:24px">Apply now</a>
         <p class="note" style="margin-top:14px">No payment is required to submit an application. Accepted athletes will receive a private enrollment link to secure their place.</p>
       </div>
@@ -1241,7 +1247,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
       <div class="faq__item">
         <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-13" id="faqb-13">How much does it cost?<span class="ico" aria-hidden="true"></span></button></h3>
         <div class="faq__panel" id="faq-13" role="region" aria-labelledby="faqb-13"><div>
-          <p>F3 Flag is $299 per month, billed monthly on an ongoing basis. No payment is required until an athlete has been accepted.</p>
+          <p>Founding-class athletes pay $199 per month, billed monthly, and keep that founding rate for as long as they stay enrolled. The regular price after the founding class is $399 per month. No payment is required until an athlete has been accepted.</p>
         </div></div>
       </div>
 
@@ -1535,7 +1541,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
             <label class="check"><input type="checkbox" name="c_application" required /><span>We understand this is an application-based program.</span></label>
             <label class="check"><input type="checkbox" name="c_noguarantee" required /><span>We understand submitting an application does not guarantee acceptance.</span></label>
             <label class="check"><input type="checkbox" name="c_fullphase" required /><span>We can commit to consistent weekly attendance.</span></label>
-            <label class="check"><input type="checkbox" name="c_cost" required /><span>We understand the program is $299 per month, billed monthly on an ongoing basis.</span></label>
+            <label class="check"><input type="checkbox" name="c_cost" required /><span>We understand the founding rate is $199 per month, billed monthly and locked for life while enrolled (regular price $399 per month).</span></label>
             <label class="check"><input type="checkbox" name="c_missed" required /><span>We understand missed sessions are not automatically refunded or credited.</span></label>
             <label class="check"><input type="checkbox" name="c_interest" required /><span>The athlete is personally interested in participating.</span></label>
             <label class="check"><input type="checkbox" name="c_comms" required /><span>We agree to receive application-related email and text communication.</span></label>
