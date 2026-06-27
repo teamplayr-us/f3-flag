@@ -1724,16 +1724,22 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
       window.addEventListener('scroll', onScroll, {passive:true});
     })();
 
-    /* ---------- Hide mobile sticky CTA while the form is on screen ---------- */
-    var mcta = $('#mobileCta'), applySec = $('#apply');
-    if (mcta && applySec && 'IntersectionObserver' in window){
+    /* ---------- Hide mobile sticky CTA while the hero or the form is on screen ---------- */
+    var mcta = $('#mobileCta'), applySec = $('#apply'), heroSec = $('#home');
+    if (mcta && 'IntersectionObserver' in window){
+      var mctaVis = {};   // tracks which watched sections are currently on screen
       var fObs = new IntersectionObserver(function(entries){
         entries.forEach(function(en){
-          mcta.classList.toggle('hide', en.isIntersecting);
-          if (en.isIntersecting && !mcta.dataset.formViewed){ mcta.dataset.formViewed='1'; f3track('form_view', {}); }
+          mctaVis[en.target.id] = en.isIntersecting;
+          if (en.target === applySec && en.isIntersecting && !mcta.dataset.formViewed){
+            mcta.dataset.formViewed='1'; f3track('form_view', {});
+          }
         });
-      }, {threshold:0.12});
-      fObs.observe(applySec);
+        // Hide the sticky bar whenever the hero or the application form is visible
+        mcta.classList.toggle('hide', !!(mctaVis.home || mctaVis.apply));
+      }, {threshold:0});
+      if (heroSec) fObs.observe(heroSec);
+      if (applySec) fObs.observe(applySec);
     }
 
     /* ============================================================
