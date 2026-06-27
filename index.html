@@ -1,0 +1,1997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<meta name="supported-color-schemes" content="light" />
+
+<!-- ============================================================
+     SEO / PRIMARY META
+     Suggested URL path: /f3-flag
+     ============================================================ -->
+<title>F3 Flag Development | Morris Claiborne, Kevin Dickens Jr. and Stephanie Raymond</title>
+<meta name="description" content="Apply for F3 Flag — an ongoing, application-based small-group DFW flag football development program featuring Morris Claiborne, Kevin Dickens Jr., and Stephanie Raymond." />
+<meta name="robots" content="index, follow" />
+
+<!-- CANONICAL — replace with the live deployed URL -->
+<link rel="canonical" href="https://REPLACE-WITH-DOMAIN/f3-flag" />
+
+<!-- THEME COLOR -->
+<meta name="theme-color" content="#0A0A0A" />
+
+<!-- FAVICON PLACEHOLDERS — add real assets before launch -->
+<!-- <link rel="icon" href="/favicon.ico" sizes="any"> -->
+<!-- <link rel="icon" href="/icon.svg" type="image/svg+xml"> -->
+<!-- <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+
+<!-- ============================================================
+     OPEN GRAPH / SOCIAL SHARING
+     ============================================================ -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Built for Athletes Who Want More | F3 Flag Founding Cohort" />
+<meta property="og:description" content="An ongoing small-group athlete development program for committed DFW flag football players. Applications are now open." />
+<meta property="og:url" content="https://REPLACE-WITH-DOMAIN/f3-flag" />
+<meta property="og:site_name" content="F3 Flag" />
+<!-- OG IMAGE — 1200x630 image of the F3 coaching team overlaid with the text "BUILT FOR ATHLETES WHO WANT MORE." -->
+<meta property="og:image" content="https://REPLACE-WITH-DOMAIN/og/f3-flag-og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- TWITTER CARD -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Built for Athletes Who Want More | F3 Flag Founding Cohort" />
+<meta name="twitter:description" content="An ongoing small-group athlete development program for committed DFW flag football players. Applications are now open." />
+<!-- TWITTER IMAGE — same 1200x630 asset as OG -->
+<meta name="twitter:image" content="https://REPLACE-WITH-DOMAIN/og/f3-flag-og.jpg" />
+
+<!-- ============================================================
+     FONTS (Google Fonts) — Anton (display) + Archivo (body/UI)
+     ============================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<!-- ============================================================
+     STRUCTURED DATA (JSON-LD)
+     Only verifiable facts. No addresses, ratings, reviews, or
+     enrollment numbers are fabricated. Location is area-level only.
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://REPLACE-WITH-DOMAIN/#f3flag",
+      "name": "F3 Flag",
+      "slogan": "Focus. Fundamentals. Finish.",
+      "description": "An independent small-group flag football athlete-development program in the Dallas–Fort Worth area, powered by Flag Football Finder.",
+      "parentOrganization": { "@type": "Organization", "name": "Flag Football Finder" },
+      "areaServed": { "@type": "AdministrativeArea", "name": "Dallas–Fort Worth, Texas" }
+    },
+    {
+      "@type": "Course",
+      "name": "F3 Flag Founding Development Cohort",
+      "description": "An application-based, ongoing, small-group flag football athlete development program for committed youth athletes in Dallas–Fort Worth.",
+      "provider": { "@id": "https://REPLACE-WITH-DOMAIN/#f3flag" },
+      "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "in-person",
+        "startDate": "2026-08-01",
+        "location": {
+          "@type": "Place",
+          "name": "Dallas–Fort Worth area (exact location shared before enrollment)",
+          "address": { "@type": "PostalAddress", "addressRegion": "TX", "addressCountry": "US" }
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "299",
+          "priceCurrency": "USD",
+          "category": "monthly",
+          "availability": "https://schema.org/PreOrder"
+        }
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Morris Claiborne",
+      "description": "NFL first-round pick, Jim Thorpe Award winner, and LSU consensus All-American defensive back; F3 Flag coach."
+    },
+    {
+      "@type": "Person",
+      "name": "Kevin Dickens Jr.",
+      "description": "Five-time Flag Football All-American and collegiate flag football national champion; athlete developer and F3 Flag coach."
+    },
+    {
+      "@type": "Person",
+      "name": "Stephanie Raymond",
+      "description": "2007 WNBA Draft selection, professional athlete, and championship flag football quarterback; F3 Flag coach."
+    }
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   Palette: ink black / white / athletic green / dark navy accent
+   Type: Anton (display, condensed) + Archivo (body + UI)
+   ============================================================ */
+:root{
+  --ink:#0A0A0A;
+  --ink-2:#141414;          /* cards on dark */
+  --ink-3:#1E1E1E;          /* hairlines on dark */
+  --white:#FFFFFF;
+  --paper:#F1F0EC;          /* light section background (cool-neutral, not cream) */
+  --paper-2:#E7E6E0;        /* subtle alt light block */
+  --accent:#1AAE52;
+  --accent-deep:#138A40;   /* hover */
+  --navy:#0E1726;           /* deep accent */
+  --muted:#5C5C57;          /* secondary text on light */
+  --muted-dark:rgba(255,255,255,.66);
+  --line:rgba(10,10,10,.14);
+  --line-dark:rgba(255,255,255,.14);
+
+  --display:'Anton', Impact, 'Arial Narrow Bold', sans-serif;
+  --body:'Archivo', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+  --container:1240px;
+  --gutter:clamp(20px, 5vw, 64px);
+
+  --r:14px;                 /* card radius */
+  --nav-h:68px;
+  --mobile-cta-h:64px;
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+/* ============================================================
+   RESET / BASE
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:hidden;color-scheme:light}
+body{
+  margin:0;
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,h4{margin:0;font-weight:400}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+ul{margin:0;padding:0;list-style:none}
+
+/* Skip link */
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;padding:12px 18px;z-index:1000;border-radius:0 0 8px 0}
+.skip:focus{left:0}
+
+/* Visible focus everywhere */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,[tabindex]:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:2px;
+  border-radius:4px;
+}
+
+/* ============================================================
+   LAYOUT PRIMITIVES
+   ============================================================ */
+.wrap{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:clamp(56px,9vw,120px)}
+.section--tight{padding-block:clamp(40px,6vw,72px)}
+.on-dark{background:var(--ink);color:var(--white)}
+.on-paper{background:var(--paper)}
+.on-navy{background:var(--navy);color:var(--white)}
+
+/* ============================================================
+   TYPE SYSTEM
+   ============================================================ */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--body);font-weight:700;font-size:.74rem;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--accent);
+  margin:0 0 18px;
+}
+.eyebrow::before{content:"";width:26px;height:4px;background:var(--accent);display:inline-block}
+.on-dark .eyebrow,.on-navy .eyebrow{color:var(--accent)}
+
+.display{
+  font-family:var(--display);
+  font-weight:400;
+  line-height:.92;
+  letter-spacing:.005em;
+  text-transform:uppercase;
+}
+.h-xl{font-size:clamp(2.7rem,8.5vw,6.6rem)}
+.h-lg{font-size:clamp(2.1rem,5.6vw,4.2rem)}
+.h-md{font-size:clamp(1.7rem,3.6vw,2.9rem)}
+.h-sm{font-size:clamp(1.35rem,2.6vw,1.9rem)}
+
+.lead{font-size:clamp(1.05rem,1.55vw,1.22rem);color:var(--muted);max-width:60ch}
+.on-dark .lead,.on-navy .lead{color:var(--muted-dark)}
+.measure{max-width:62ch}
+
+.accent{color:var(--accent)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  --bg:var(--accent);--fg:#fff;
+  display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  min-height:52px;padding:0 26px;
+  background:var(--bg);color:var(--fg);
+  font-family:var(--body);font-weight:800;font-size:.93rem;
+  letter-spacing:.08em;text-transform:uppercase;
+  border:2px solid var(--bg);border-radius:999px;
+  transition:transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+  text-align:center;
+}
+.btn:hover{background:var(--accent-deep);border-color:var(--accent-deep);transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn--ghost{--bg:transparent;--fg:#fff;border-color:rgba(255,255,255,.4)}
+.btn--ghost:hover{background:rgba(255,255,255,.08);border-color:#fff;transform:translateY(-2px)}
+.btn--dark{--bg:var(--ink);--fg:#fff;border-color:var(--ink)}
+.btn--dark:hover{background:#000;border-color:#000}
+.btn--ghost-dark{--bg:transparent;--fg:var(--ink);border-color:var(--line)}
+.btn--ghost-dark:hover{background:rgba(0,0,0,.05);border-color:var(--ink)}
+.btn--lg{min-height:60px;font-size:1rem;padding:0 34px}
+.btn--block{display:flex;width:100%}
+
+/* ============================================================
+   STICKY NAV
+   ============================================================ */
+.nav{
+  position:sticky;top:0;z-index:80;
+  background:rgba(10,10,10,.0);
+  transition:background .3s var(--ease), box-shadow .3s var(--ease), backdrop-filter .3s var(--ease);
+}
+.nav.solid{background:rgba(10,10,10,.92);backdrop-filter:saturate(140%) blur(8px);box-shadow:0 1px 0 var(--line-dark)}
+.nav__inner{display:flex;align-items:center;justify-content:space-between;min-height:var(--nav-h);gap:16px}
+.brand{display:flex;flex-direction:column;line-height:1;color:#fff}
+.brand__name{font-family:var(--display);font-size:1.5rem;letter-spacing:.04em}
+.brand__name .dot{color:var(--accent)}
+.brand__tag{font-size:.56rem;font-weight:700;letter-spacing:.34em;color:rgba(255,255,255,.72);margin-top:5px;text-transform:uppercase}
+
+.nav__links{display:flex;align-items:center;gap:6px}
+.nav__links a{
+  display:inline-flex;align-items:center;min-height:44px;padding:0 14px;
+  color:#fff;font-weight:600;font-size:.92rem;border-radius:8px;
+  transition:color .15s var(--ease), background .15s var(--ease);
+}
+.nav__links a:hover{color:var(--accent)}
+.nav__links .btn{min-height:44px;padding:0 20px;font-size:.82rem;margin-left:8px}
+.nav__links .btn:hover{color:#fff}
+
+.nav__toggle{display:none;background:none;border:0;width:48px;height:48px;align-items:center;justify-content:center}
+.nav__toggle span{display:block;width:26px;height:2px;background:#fff;position:relative;transition:transform .25s var(--ease), opacity .2s var(--ease)}
+.nav__toggle span::before,.nav__toggle span::after{content:"";position:absolute;left:0;width:26px;height:2px;background:#fff;transition:transform .25s var(--ease)}
+.nav__toggle span::before{top:-8px}
+.nav__toggle span::after{top:8px}
+.nav__toggle[aria-expanded="true"] span{background:transparent}
+.nav__toggle[aria-expanded="true"] span::before{transform:translateY(8px) rotate(45deg)}
+.nav__toggle[aria-expanded="true"] span::after{transform:translateY(-8px) rotate(-45deg)}
+
+/* Mobile drawer */
+.nav__drawer{position:fixed;inset:var(--nav-h) 0 0 0;background:var(--ink);z-index:79;transform:translateX(100%);transition:transform .3s var(--ease);display:flex;flex-direction:column;padding:24px var(--gutter) 40px;overflow-y:auto}
+.nav__drawer.open{transform:translateX(0)}
+.nav__drawer a{display:flex;align-items:center;min-height:56px;font-family:var(--display);font-size:1.7rem;color:#fff;border-bottom:1px solid var(--ink-3);text-transform:uppercase}
+.nav__drawer a:hover{color:var(--accent)}
+.nav__drawer .btn{margin-top:26px;min-height:56px}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,56px);align-items:center;padding-block:clamp(48px,7vw,92px)}
+.hero__copy{max-width:46ch}
+.hero h1{margin:14px 0 0}
+.hero h1 .l2{color:var(--accent)}
+.hero__tag{margin-top:16px;font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;line-height:1;font-size:clamp(1rem,1.6vw,1.25rem);color:#fff}
+.hero__tag::before{content:"";display:inline-block;width:24px;height:4px;background:var(--accent);vertical-align:middle;margin-right:12px;transform:translateY(-3px)}
+.hero__sub{margin-top:26px;display:grid;gap:16px}
+.hero__sub p{color:var(--muted-dark);font-size:clamp(1rem,1.3vw,1.12rem)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
+.hero__urgency{margin-top:26px;display:flex;align-items:flex-start;gap:12px;font-size:.92rem;color:#fff;border-top:1px solid var(--ink-3);padding-top:20px}
+.hero__urgency .pulse{flex:0 0 auto;width:10px;height:10px;border-radius:50%;background:var(--accent);margin-top:5px;box-shadow:0 0 0 0 rgba(26,174,82,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(26,174,82,.55)}70%{box-shadow:0 0 0 12px rgba(26,174,82,0)}100%{box-shadow:0 0 0 0 rgba(26,174,82,0)}}
+
+/* ============================================================
+   MEDIA PLACEHOLDERS
+   Each <img> uses a neutral inline-SVG placeholder. Swap the src
+   for production photography (path noted in the HTML comment above
+   each image). alt / width / height / loading are production-ready.
+   ============================================================ */
+.media{position:relative;overflow:hidden;border-radius:var(--r);background:var(--ink-2)}
+.media img{width:100%;height:100%;object-fit:cover}
+.media[data-ratio="4-5"]{aspect-ratio:4/5}
+.media[data-ratio="16-9"]{aspect-ratio:16/9}
+.media[data-ratio="3-2"]{aspect-ratio:3/2}
+.media[data-ratio="1-1"]{aspect-ratio:1/1}
+.media__tag{position:absolute;left:12px;bottom:12px;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);background:rgba(0,0,0,.55);padding:6px 10px;border-radius:6px;backdrop-filter:blur(3px)}
+.hero__media{position:relative}
+.hero__media .badge{position:absolute;top:18px;left:18px;background:var(--accent);color:#fff;font-family:var(--display);font-size:.95rem;letter-spacing:.06em;padding:8px 14px;border-radius:8px}
+
+/* ============================================================
+   CREDENTIAL STRIP
+   ============================================================ */
+.creds{background:var(--ink);border-top:1px solid var(--ink-3);color:#fff}
+.creds__inner{padding-block:22px}
+.creds__list{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.creds__list::-webkit-scrollbar{height:0}
+.cred{scroll-snap-align:start;flex:0 0 auto;display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ink-3);border-radius:999px;padding:11px 18px;white-space:nowrap;font-weight:600;font-size:.86rem}
+.cred .tick{width:7px;height:7px;background:var(--accent);border-radius:2px;flex:0 0 auto}
+
+/* ============================================================
+   GENERIC SECTION HEADER
+   ============================================================ */
+.shead{max-width:64ch;margin-bottom:clamp(28px,4vw,52px)}
+.shead .lead{margin-top:16px}
+
+/* ============================================================
+   CORE POSITIONING
+   ============================================================ */
+.pos h2{margin-bottom:8px}
+.pos__big{margin:6px 0 26px}
+.standards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:clamp(32px,4vw,48px)}
+.standard{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;transition:transform .2s var(--ease), box-shadow .2s var(--ease)}
+.on-paper .standard{background:#fff}
+.standard:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px rgba(0,0,0,.4)}
+.standard__n{font-family:var(--display);color:var(--accent);font-size:1.1rem;letter-spacing:.08em}
+.standard h3{font-family:var(--display);font-size:1.45rem;margin:10px 0 8px;text-transform:uppercase;letter-spacing:.01em}
+.standard p{font-size:.95rem;color:var(--muted)}
+.pullquote{margin-top:clamp(40px,6vw,72px);font-family:var(--display);text-transform:uppercase;line-height:1;font-size:clamp(1.6rem,4.4vw,3.3rem);max-width:22ch;border-left:6px solid var(--accent);padding-left:clamp(18px,3vw,34px)}
+
+/* ============================================================
+   PROGRAM OVERVIEW
+   ============================================================ */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.fcard{background:var(--ink-2);border:1px solid var(--ink-3);border-radius:var(--r);padding:20px 20px;display:flex;align-items:flex-start;gap:12px}
+.fcard .tick{flex:0 0 auto;width:8px;height:8px;background:var(--accent);border-radius:2px;margin-top:8px}
+.fcard span{font-weight:600;font-size:.98rem}
+
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink-3);border:1px solid var(--ink-3);border-radius:var(--r);overflow:hidden;margin-top:clamp(28px,4vw,44px)}
+.detail{background:var(--ink);padding:24px 22px}
+.detail dt{font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.detail dd{margin:0;font-family:var(--display);font-size:1.5rem;text-transform:uppercase;line-height:1}
+.detail dd .small{display:block;font-family:var(--body);font-weight:500;font-size:.86rem;text-transform:none;color:var(--muted-dark);margin-top:8px;line-height:1.4}
+.poslist{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.poslist li{border:1px solid var(--ink-3);border-radius:999px;padding:7px 14px;font-size:.84rem;font-weight:600}
+
+/* ============================================================
+   COACHING TEAM
+   ============================================================ */
+.coaches{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.4vw,26px);margin-top:8px}
+.coach{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s var(--ease), box-shadow .2s var(--ease)}
+.coach:hover{transform:translateY(-5px);box-shadow:0 26px 50px -30px rgba(0,0,0,.5)}
+.coach__body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.coach__name{font-family:var(--display);font-size:1.7rem;text-transform:uppercase;letter-spacing:.01em;line-height:1}
+.coach__cred{color:var(--accent);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin:10px 0 14px;line-height:1.5}
+.coach__bio p{font-size:.95rem;color:var(--muted);margin-bottom:12px}
+.coach__bio{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s var(--ease)}
+.coach__bio>div{overflow:hidden}
+.coach__bio.open{grid-template-rows:1fr}
+.coach__bio--lead{margin-bottom:6px}
+.coach__bio--lead p{margin-bottom:0}
+.coach__toggle{align-self:flex-start;background:none;border:0;color:var(--ink);font-weight:800;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:10px 0;min-height:44px;display:inline-flex;align-items:center;gap:8px}
+.coach__toggle .chev{transition:transform .25s var(--ease);color:var(--accent)}
+.coach__toggle[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.coach__emph{margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+.coach__emph h4{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.coach__emph ul{display:flex;flex-wrap:wrap;gap:7px}
+.coach__emph li{font-size:.78rem;font-weight:600;border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+
+.coach-cap{margin-top:clamp(36px,5vw,60px);display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,3vw,40px);align-items:center}
+.coach-cap h3{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.7rem,3.4vw,2.6rem);line-height:1}
+.disclaimer{font-size:.86rem;color:var(--muted);border-left:3px solid var(--accent);padding-left:16px;margin-top:22px}
+.on-dark .disclaimer,.on-navy .disclaimer{color:var(--muted-dark)}
+
+/* ============================================================
+   CURRICULUM (tabbed week selector)
+   ============================================================ */
+.curric{display:grid;grid-template-columns:300px 1fr;gap:clamp(18px,3vw,44px);margin-top:8px;align-items:start}
+.weektabs{display:flex;flex-direction:column;gap:6px;position:sticky;top:calc(var(--nav-h) + 14px)}
+.weektab{display:flex;align-items:center;gap:14px;text-align:left;background:transparent;border:1px solid var(--ink-3);color:#fff;border-radius:12px;padding:14px 16px;min-height:56px;transition:background .18s var(--ease), border-color .18s var(--ease)}
+.weektab .num{font-family:var(--display);font-size:1.2rem;color:var(--muted-dark);transition:color .18s var(--ease)}
+.weektab .lbl{font-weight:600;font-size:.92rem}
+.weektab:hover{border-color:rgba(255,255,255,.35)}
+.weektab[aria-selected="true"]{background:var(--accent);border-color:var(--accent)}
+.weektab[aria-selected="true"] .num{color:#fff}
+.weekpanel{background:var(--ink-2);border:1px solid var(--ink-3);border-radius:var(--r);padding:clamp(24px,3vw,40px)}
+.weekpanel .kicker{font-family:var(--display);font-size:clamp(2.4rem,6vw,4rem);color:var(--accent);line-height:.9}
+.weekpanel h3{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.5rem,3vw,2.2rem);line-height:1;margin:6px 0 22px}
+.weekpanel ul{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.weekpanel li{display:flex;gap:11px;align-items:flex-start;font-size:.96rem;color:#fff}
+.weekpanel li .tick{flex:0 0 auto;width:7px;height:7px;background:var(--accent);border-radius:2px;margin-top:8px}
+
+/* ============================================================
+   WHAT ATHLETES RECEIVE
+   ============================================================ */
+.diff{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.diffcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;transition:transform .2s var(--ease), box-shadow .2s var(--ease)}
+.on-paper .diffcard{background:#fff}
+.diffcard:hover{transform:translateY(-4px);box-shadow:0 18px 40px -26px rgba(0,0,0,.4)}
+.diffcard .n{font-family:var(--display);color:var(--accent);font-size:1rem;letter-spacing:.1em}
+.diffcard h3{font-family:var(--display);text-transform:uppercase;font-size:1.35rem;margin:12px 0 10px;line-height:1.02}
+.diffcard p{font-size:.95rem;color:var(--muted)}
+
+/* ============================================================
+   WHO IT'S FOR (split)
+   ============================================================ */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.5vw,28px);margin-top:8px}
+.fitcol{border-radius:var(--r);padding:clamp(24px,3vw,38px);border:1px solid var(--line)}
+.fitcol--yes{background:var(--ink);color:#fff;border-color:var(--ink)}
+.fitcol--no{background:#fff}
+.fitcol h3{font-family:var(--display);text-transform:uppercase;font-size:1.5rem;line-height:1.05;margin-bottom:20px;letter-spacing:.01em}
+.fitcol--yes h3{color:#fff}
+.fitcol li{display:flex;gap:12px;align-items:flex-start;padding:9px 0;font-size:.98rem;border-bottom:1px solid var(--line-dark)}
+.fitcol--no li{border-bottom-color:var(--line);color:var(--ink)}
+.fitcol li:last-child{border-bottom:0}
+.mark{flex:0 0 auto;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:.8rem;margin-top:1px}
+.mark--yes{background:var(--accent);color:#fff}
+.mark--no{background:transparent;border:2px solid var(--line);color:var(--muted)}
+
+/* ============================================================
+   APPLICATION PROCESS (4 step)
+   ============================================================ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+.step{background:var(--ink-2);border:1px solid var(--ink-3);border-radius:var(--r);padding:26px 22px;position:relative}
+.step .n{font-family:var(--display);font-size:2.6rem;color:var(--accent);line-height:.8}
+.step h3{font-family:var(--display);text-transform:uppercase;font-size:1.3rem;margin:14px 0 10px}
+.step p{font-size:.93rem;color:var(--muted-dark)}
+
+/* ============================================================
+   PRICING
+   ============================================================ */
+.price{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,3vw,44px);align-items:center;margin-top:8px}
+.pricecard{background:var(--ink);color:#fff;border-radius:var(--r);padding:clamp(30px,4vw,48px);text-align:center}
+.pricecard .amt{font-family:var(--display);font-size:clamp(4rem,12vw,7rem);line-height:.85}
+.pricecard .per{font-weight:700;letter-spacing:.2em;text-transform:uppercase;font-size:.82rem;color:var(--muted-dark);margin-top:8px}
+.pricecard .note{margin-top:18px;font-size:.9rem;color:var(--muted-dark)}
+.pricelist li{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);font-size:.98rem}
+.pricelist li:last-child{border-bottom:0}
+.pricelist .tick{flex:0 0 auto;width:8px;height:8px;background:var(--accent);border-radius:2px;margin-top:8px}
+.price-note{margin-top:18px;font-size:.92rem;color:var(--muted)}
+.under-cta{font-size:.88rem;color:var(--muted);margin-top:14px}
+
+/* ============================================================
+   FOUNDING COHORT
+   ============================================================ */
+.founding{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,44px);align-items:start;margin-top:8px}
+.foundlist li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line-dark);font-size:1rem}
+.foundlist li:last-child{border-bottom:0}
+.foundlist .tick{flex:0 0 auto;width:8px;height:8px;background:var(--accent);border-radius:2px;margin-top:9px}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+.faq{max-width:880px;margin-top:8px}
+.faq__item{border-bottom:1px solid var(--line)}
+.faq__btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:18px;background:none;border:0;text-align:left;padding:22px 4px;min-height:64px;font-family:var(--body);font-weight:700;font-size:clamp(1rem,1.6vw,1.18rem);color:var(--ink)}
+.faq__btn .ico{flex:0 0 auto;width:24px;height:24px;position:relative}
+.faq__btn .ico::before,.faq__btn .ico::after{content:"";position:absolute;background:var(--accent);transition:transform .25s var(--ease), opacity .25s var(--ease)}
+.faq__btn .ico::before{top:11px;left:2px;width:20px;height:2px}
+.faq__btn .ico::after{left:11px;top:2px;width:2px;height:20px}
+.faq__btn[aria-expanded="true"] .ico::after{transform:scaleY(0)}
+.faq__panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .28s var(--ease)}
+.faq__panel.open{grid-template-rows:1fr}
+.faq__panel>div{overflow:hidden}
+.faq__panel p{padding:0 4px 24px;color:var(--muted);max-width:70ch;font-size:1rem}
+.faq__panel p+p{padding-top:0;margin-top:-8px}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final{background:var(--ink);color:#fff;text-align:center;position:relative;overflow:hidden}
+.final__inner{max-width:920px;margin-inline:auto}
+.final h2{margin:14px 0}
+.final h2 .l2{color:var(--accent)}
+.final .lead{margin:24px auto 0}
+.final .btn{margin-top:34px}
+.final .fine{margin-top:22px;font-size:.9rem;color:var(--muted-dark);max-width:62ch;margin-inline:auto}
+
+/* ============================================================
+   APPLICATION FORM
+   ============================================================ */
+.form-wrap{max-width:880px;margin-top:10px}
+.formcard{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,3vw,40px)}
+fieldset{border:0;padding:0;margin:0 0 14px}
+.fs-head{font-family:var(--display);text-transform:uppercase;font-size:1.25rem;letter-spacing:.02em;padding-top:26px;margin-bottom:6px;border-top:1px solid var(--line)}
+fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
+.fs-sub{color:var(--muted);font-size:.92rem;margin-bottom:18px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:4px}
+.field.full{grid-column:1/-1}
+.field label{font-weight:700;font-size:.86rem}
+.field .req{color:var(--accent)}
+.field .hint{font-weight:500;color:var(--muted);font-size:.78rem}
+.field input,.field select,.field textarea{
+  font-family:inherit;font-size:1rem;color:var(--ink);
+  background:#fff;border:1.5px solid var(--line);border-radius:10px;
+  padding:13px 14px;min-height:50px;width:100%;
+  transition:border-color .15s var(--ease), box-shadow .15s var(--ease);
+}
+.field textarea{min-height:104px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);outline:none;box-shadow:0 0 0 3px rgba(26,174,82,.18)}
+.field input[aria-invalid="true"],.field select[aria-invalid="true"],.field textarea[aria-invalid="true"]{border-color:#c62828;box-shadow:0 0 0 3px rgba(198,40,40,.14)}
+.err{color:#c62828;font-size:.8rem;font-weight:600;min-height:0;display:none}
+.err.show{display:block}
+.checks{display:grid;gap:10px}
+.check{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;cursor:pointer;min-height:44px}
+.check input{width:22px;height:22px;min-height:22px;margin-top:2px;flex:0 0 auto;accent-color:var(--accent)}
+.check span{font-size:.92rem}
+.check.invalid{border-color:#c62828}
+.form-actions{margin-top:24px}
+.form-status{margin-top:14px;font-size:.92rem;font-weight:600}
+.form-status[data-state="error"]{color:#c62828}
+.btn[aria-busy="true"]{opacity:.75;pointer-events:none}
+.spinner{width:18px;height:18px;border:2px solid rgba(255,255,255,.5);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none}
+.btn[aria-busy="true"] .spinner{display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
+.form-success{display:none;text-align:center;padding:clamp(28px,5vw,56px) 20px}
+.form-success.show{display:block}
+.form-success .check-ico{width:64px;height:64px;border-radius:50%;background:var(--accent);display:grid;place-items:center;margin:0 auto 22px}
+.form-success .check-ico svg{width:30px;height:30px;stroke:#fff;stroke-width:3;fill:none}
+.form-success h3{font-family:var(--display);text-transform:uppercase;font-size:clamp(1.8rem,4vw,2.6rem)}
+.form-success p{color:var(--muted);max-width:48ch;margin:14px auto 0}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer{background:var(--ink);color:#fff;padding-block:clamp(48px,6vw,72px)}
+.footer__top{display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:start}
+.footer .brand__name{font-size:2rem}
+.footer__powered{color:var(--muted-dark);margin-top:14px;font-size:.95rem}
+.footer__links{display:flex;flex-wrap:wrap;gap:8px 26px}
+.footer__links a{color:var(--muted-dark);font-weight:600;font-size:.92rem;min-height:44px;display:inline-flex;align-items:center}
+.footer__links a:hover{color:var(--accent)}
+.footer__legal{margin-top:36px;padding-top:24px;border-top:1px solid var(--ink-3);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;color:var(--muted-dark);font-size:.84rem}
+.footer__disclaimer{max-width:78ch;line-height:1.6}
+
+/* ============================================================
+   STICKY MOBILE APPLY BAR + BACK TO TOP
+   ============================================================ */
+.mobile-cta{position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(10,10,10,.96);backdrop-filter:blur(6px);border-top:1px solid var(--ink-3);padding:10px var(--gutter);display:none;transition:transform .3s var(--ease)}
+.mobile-cta.hide{transform:translateY(120%)}
+.mobile-cta .btn{width:100%;min-height:52px}
+.to-top{position:fixed;right:18px;bottom:calc(var(--mobile-cta-h) + 18px);z-index:60;width:48px;height:48px;border-radius:50%;background:var(--accent);color:#fff;border:0;display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(8px);transition:opacity .25s var(--ease), transform .25s var(--ease)}
+.to-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.to-top svg{width:22px;height:22px;stroke:#fff;stroke-width:2.5;fill:none}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s var(--ease), transform .6s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1080px){
+  .standards{grid-template-columns:repeat(2,1fr)}
+  .feature-grid{grid-template-columns:repeat(2,1fr)}
+  .detail-grid{grid-template-columns:repeat(2,1fr)}
+  .diff{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .coaches{grid-template-columns:1fr;max-width:560px;margin-inline:auto}
+}
+@media (max-width:900px){
+  .nav__links{display:none}
+  .nav__toggle{display:flex}
+  .hero__grid{grid-template-columns:1fr}
+  .hero__media{order:-1}
+  .curric{grid-template-columns:1fr}
+  .weektabs{position:static;flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:6px}
+  .weektab{flex:0 0 auto;min-height:48px}
+  .weektab .lbl{display:none}
+  .weekpanel ul{grid-template-columns:1fr}
+  .fit{grid-template-columns:1fr}
+  .price{grid-template-columns:1fr}
+  .founding{grid-template-columns:1fr}
+  .coach-cap{grid-template-columns:1fr}
+  .footer__top{grid-template-columns:1fr}
+  .mobile-cta{display:block}
+  body{padding-bottom:calc(var(--mobile-cta-h) + env(safe-area-inset-bottom))}
+}
+@media (max-width:560px){
+  .standards{grid-template-columns:1fr}
+  .feature-grid{grid-template-columns:1fr}
+  .detail-grid{grid-template-columns:1fr}
+  .diff{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .grid2,.grid3{grid-template-columns:1fr}
+  .to-top{right:14px}
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;scroll-behavior:auto !important}
+  .reveal{opacity:1;transform:none}
+  .hero__urgency .pulse{animation:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<!-- ============================================================
+     STICKY NAVIGATION
+     ============================================================ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top" aria-label="F3 Flag — Home">
+      <span class="brand__name">F3<span class="dot">.</span>FLAG</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#program">The Program</a>
+      <a href="#coaches">Coaching Team</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#fit">Who It's For</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn" href="#apply" data-cta="nav">Apply Now</a>
+    </nav>
+
+    <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div class="nav__drawer" id="navDrawer" aria-label="Mobile menu" hidden>
+    <a href="#program">The Program</a>
+    <a href="#coaches">Coaching Team</a>
+    <a href="#curriculum">Curriculum</a>
+    <a href="#fit">Who It's For</a>
+    <a href="#faq">FAQ</a>
+    <a class="btn btn--block" href="#apply" data-cta="nav">Apply Now</a>
+  </div>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="home" aria-labelledby="hero-h">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <h1 class="display h-xl" id="hero-h">
+        Real coaching, week after week.<br>
+        <span class="l2">A noticeably better athlete.</span>
+      </h1>
+      <p class="hero__tag">Built for athletes who want more.</p>
+      <div class="hero__sub">
+        <p>F3 Flag is small-group development for athletes who want focused coaching, meaningful feedback, and an environment built around improvement—not attention.</p>
+        <p>An ongoing monthly program with instruction from <strong>Morris Claiborne</strong>, <strong>Kevin Dickens Jr.</strong>, and <strong>Stephanie Raymond</strong> — experience spanning professional football, elite competitive flag football, championship play, professional women's sports, quarterback development, receiver development, defensive back technique, and high-performance environments.</p>
+      </div>
+      <div class="hero__cta">
+        <a class="btn btn--lg" href="#apply" data-cta="primary">Apply for the Founding Cohort</a>
+        <a class="btn btn--ghost btn--lg" href="#program" data-cta="secondary">See how the program works</a>
+      </div>
+      <p class="hero__urgency"><span class="pulse" aria-hidden="true"></span><span>Applications are now open. Training begins August 1, 2026. Space is limited to eight athletes per group.</span></p>
+    </div>
+
+    <div class="hero__media">
+      <span class="badge">F3 · DFW</span>
+      <!-- HERO IMAGE — Production: the complete F3 coaching team working with athletes on the field.
+           Acceptable alternative: a strong action shot of one coach instructing an athlete.
+           Swap src for: /images/hero-coaching-team.jpg  (eager loaded, not lazy) -->
+      <div class="media" data-ratio="4-5">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Crect width='4' height='5' fill='%23141414'/%3E%3Crect x='.24' y='.24' width='.7' height='.08' fill='%231aae52'/%3E%3C/svg%3E"
+             width="800" height="1000" alt="The F3 Flag coaching team working with youth athletes during a small-group session" />
+        <span class="media__tag">Coaching team · athletes</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COACH CREDIBILITY STRIP (horizontally scrollable on mobile)
+     ============================================================ -->
+<section class="creds" aria-label="Coaching credentials">
+  <div class="wrap creds__inner">
+    <ul class="creds__list">
+      <li class="cred"><span class="tick"></span>NFL First-Round Experience</li>
+      <li class="cred"><span class="tick"></span>Jim Thorpe Award Winner</li>
+      <li class="cred"><span class="tick"></span>Five-Time Flag Football All-American</li>
+      <li class="cred"><span class="tick"></span>Collegiate Flag Football National Champion</li>
+      <li class="cred"><span class="tick"></span>WNBA Draft Selection</li>
+      <li class="cred"><span class="tick"></span>Professional Athlete Experience</li>
+      <li class="cred"><span class="tick"></span>Championship Quarterback Experience</li>
+      <li class="cred"><span class="tick"></span>Elite Flag Football Leadership</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
+     CORE POSITIONING
+     ============================================================ -->
+<section class="section on-paper pos" aria-labelledby="pos-h">
+  <div class="wrap">
+    <p class="eyebrow reveal">Who F3 is built for</p>
+    <h2 class="display h-lg reveal" id="pos-h">You do not have to be the best player in the group.</h2>
+    <p class="display h-md pos__big accent reveal">You do have to be willing to work.</p>
+    <div class="reveal">
+      <p class="lead">F3 is not reserved for athletes with the biggest names, highest rankings, longest highlight reels, or most social media attention. It is built for athletes who want to improve their movement, technique, football understanding, confidence, preparation, and ability to execute under pressure.</p>
+      <p class="lead" style="margin-top:14px">We are selecting athletes based on commitment, coachability, consistency, availability, and fit—not reputation.</p>
+    </div>
+
+    <div class="standards">
+      <div class="standard reveal">
+        <div class="standard__n">01</div>
+        <h3>Show up</h3>
+        <p>Arrive consistently, prepared, and ready to work.</p>
+      </div>
+      <div class="standard reveal">
+        <div class="standard__n">02</div>
+        <h3>Accept coaching</h3>
+        <p>Listen, apply feedback, ask questions, and stay engaged.</p>
+      </div>
+      <div class="standard reveal">
+        <div class="standard__n">03</div>
+        <h3>Compete with purpose</h3>
+        <p>Treat every repetition as an opportunity to improve.</p>
+      </div>
+      <div class="standard reveal">
+        <div class="standard__n">04</div>
+        <h3>Work between sessions</h3>
+        <p>Development does not stop when the scheduled practice ends.</p>
+      </div>
+    </div>
+
+    <p class="pullquote reveal">Serious athletes are not defined by where they are today. They are defined by how they approach what comes next.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROGRAM OVERVIEW
+     ============================================================ -->
+<section class="section on-dark" id="program" aria-labelledby="prog-h">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">The Founding Development Cohort</p>
+      <h2 class="display h-lg" id="prog-h">More than another workout.</h2>
+      <p class="lead">Most team practices are designed to prepare the team for its next game. F3 gives athletes the focused individual development that team environments often cannot provide. Small groups allow coaches to identify specific needs, correct details, create purposeful repetitions, and hold athletes accountable for applying what they learn.</p>
+    </div>
+
+    <ul class="feature-grid reveal" aria-label="Program features">
+      <li class="fcard"><span class="tick"></span><span>Structured, progressive weekly development</span></li>
+      <li class="fcard"><span class="tick"></span><span>One 75-minute session each week</span></li>
+      <li class="fcard"><span class="tick"></span><span>Maximum eight athletes per group</span></li>
+      <li class="fcard"><span class="tick"></span><span>Initial athlete assessment</span></li>
+      <li class="fcard"><span class="tick"></span><span>Individual development priorities</span></li>
+      <li class="fcard"><span class="tick"></span><span>Position-specific technical instruction</span></li>
+      <li class="fcard"><span class="tick"></span><span>Competitive small-group repetitions</span></li>
+      <li class="fcard"><span class="tick"></span><span>Work assigned between sessions</span></li>
+      <li class="fcard"><span class="tick"></span><span>Parent progress communication</span></li>
+      <li class="fcard"><span class="tick"></span><span>Final evaluation</span></li>
+      <li class="fcard"><span class="tick"></span><span>Next-step development plan</span></li>
+    </ul>
+
+    <dl class="detail-grid reveal">
+      <div class="detail">
+        <dt>Start date</dt>
+        <dd>Sat · Aug 1<span class="small">2026</span></dd>
+      </div>
+      <div class="detail">
+        <dt>Format</dt>
+        <dd>Ongoing · weekly sessions</dd>
+      </div>
+      <div class="detail">
+        <dt>Location</dt>
+        <dd>Dallas–Fort Worth<span class="small">Exact recurring training location will be shared before enrollment.</span></dd>
+      </div>
+      <div class="detail">
+        <dt>Schedule</dt>
+        <dd>Saturday sessions<span class="small">Final session times will be based on age, position, cohort placement, and facility availability.</span></dd>
+      </div>
+      <div class="detail">
+        <dt>Investment</dt>
+        <dd>$299 / month<span class="small">Billed monthly, ongoing.</span></dd>
+      </div>
+      <div class="detail">
+        <dt>Capacity</dt>
+        <dd>Eight athletes max<span class="small">Per group.</span></dd>
+      </div>
+      <div class="detail" style="grid-column:1/-1">
+        <dt>Expected positions</dt>
+        <dd style="font-family:var(--body);font-size:1rem;text-transform:none">
+          <ul class="poslist">
+            <li>Quarterback</li><li>Wide receiver</li><li>Defensive back</li>
+            <li>Center</li><li>Running back</li><li>Versatile offensive &amp; defensive skill athletes</li>
+          </ul>
+        </dd>
+      </div>
+    </dl>
+
+    <div class="reveal" style="margin-top:36px">
+      <a class="btn btn--lg" href="#apply" data-cta="primary">Start your application</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COACHING TEAM
+     ============================================================ -->
+<section class="section on-paper" id="coaches" aria-labelledby="coach-h">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">The F3 coaching team</p>
+      <h2 class="display h-lg" id="coach-h">High-level experience. Personal development.</h2>
+      <p class="lead">F3 brings together accomplished athletes and football leaders who understand that sustainable improvement requires more than athletic ability. Each coach brings a different perspective. Every athlete is held to the same standard of preparation, coachability, effort, and attention to detail.</p>
+    </div>
+
+    <div class="coaches">
+
+      <!-- ===== COACH: Morris Claiborne ===== -->
+      <article class="coach reveal">
+        <!-- IMAGE — Morris Claiborne portrait. Swap src for: /images/morris-claiborne-portrait.jpg -->
+        <div class="media" data-ratio="4-5">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Crect width='4' height='5' fill='%23141414'/%3E%3Crect x='.24' y='.24' width='.7' height='.08' fill='%231aae52'/%3E%3C/svg%3E"
+               width="640" height="800" loading="lazy" alt="Portrait of coach Morris Claiborne" />
+          <span class="media__tag">Morris Claiborne</span>
+        </div>
+        <div class="coach__body">
+          <h3 class="coach__name">Morris Claiborne</h3>
+          <p class="coach__cred">NFL First-Round Pick · Jim Thorpe Award Winner · LSU All-American</p>
+          <div class="coach__bio coach__bio--lead">
+            <div><p>Morris Claiborne developed from a high school athlete in Shreveport, Louisiana, into one of the most accomplished defensive backs in college football.</p></div>
+          </div>
+          <div class="coach__bio" id="bio-morris">
+            <div>
+              <p>At LSU, he earned consensus All-American honors and won the Jim Thorpe Award as the nation's top defensive back. He was selected sixth overall in the NFL Draft and went on to play nine professional seasons.</p>
+              <p>Morris brings athletes a firsthand understanding of defensive technique, preparation, competitive discipline, film study, movement, and the details required to perform at the highest levels.</p>
+            </div>
+          </div>
+          <button class="coach__toggle" type="button" aria-expanded="false" aria-controls="bio-morris" data-coach="Morris Claiborne">
+            <span class="t">Read full bio</span><span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <!-- Additional production images: Morris teaching defensive technique; Morris correcting athlete footwork -->
+          <div class="coach__emph">
+            <h4>Areas of emphasis</h4>
+            <ul>
+              <li>Defensive back technique</li><li>Coverage fundamentals</li><li>Leverage &amp; body positioning</li>
+              <li>Ball skills</li><li>Route recognition</li><li>Flag-pulling angles</li>
+              <li>Competitive preparation</li><li>Defensive decision-making</li><li>Professional training habits</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== COACH: Kevin Dickens Jr. ===== -->
+      <article class="coach reveal">
+        <!-- IMAGE — Kevin Dickens Jr. portrait. Swap src for: /images/kevin-dickens-jr-portrait.jpg -->
+        <div class="media" data-ratio="4-5">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Crect width='4' height='5' fill='%23141414'/%3E%3Crect x='.24' y='.24' width='.7' height='.08' fill='%231aae52'/%3E%3C/svg%3E"
+               width="640" height="800" loading="lazy" alt="Portrait of coach Kevin Dickens Jr." />
+          <span class="media__tag">Kevin Dickens Jr.</span>
+        </div>
+        <div class="coach__body">
+          <h3 class="coach__name">Kevin Dickens Jr.</h3>
+          <p class="coach__cred">Five-Time Flag Football All-American · National Champion · Athlete Developer</p>
+          <div class="coach__bio coach__bio--lead">
+            <div><p>Kevin Dickens Jr. brings more than two decades of competitive flag football experience and a deep understanding of the modern flag game.</p></div>
+          </div>
+          <div class="coach__bio" id="bio-kevin">
+            <div>
+              <p>A former collegiate track and field athlete at the University of Nebraska–Lincoln, Kevin became a five-time Flag Football All-American and a collegiate flag football national champion.</p>
+              <p>Beyond his playing accomplishments, Kevin has built and led competitive flag football programs, coached athletes, organized high-level competition, and helped create development pathways for youth, women's, and adult players.</p>
+              <p>He brings F3 athletes a combination of flag-specific intelligence, movement expertise, competitive experience, and an ability to translate the game into practical instruction.</p>
+            </div>
+          </div>
+          <button class="coach__toggle" type="button" aria-expanded="false" aria-controls="bio-kevin" data-coach="Kevin Dickens Jr.">
+            <span class="t">Read full bio</span><span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <!-- Additional production images: Kevin teaching route running; Kevin coaching movement or speed; Kevin instructing a small group -->
+          <div class="coach__emph">
+            <h4>Areas of emphasis</h4>
+            <ul>
+              <li>Flag-specific offensive technique</li><li>Wide receiver development</li><li>Route running</li>
+              <li>Releases &amp; separation</li><li>Speed &amp; movement efficiency</li><li>Game intelligence</li>
+              <li>Competitive mindset</li><li>Athlete evaluation</li><li>Development pathways</li><li>Modern flag concepts</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== COACH: Stephanie Raymond ===== -->
+      <article class="coach reveal">
+        <!-- IMAGE — Stephanie Raymond portrait. Swap src for: /images/stephanie-raymond-portrait.jpg -->
+        <div class="media" data-ratio="4-5">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Crect width='4' height='5' fill='%23141414'/%3E%3Crect x='.24' y='.24' width='.7' height='.08' fill='%231aae52'/%3E%3C/svg%3E"
+               width="640" height="800" loading="lazy" alt="Portrait of coach Stephanie Raymond" />
+          <span class="media__tag">Stephanie Raymond</span>
+        </div>
+        <div class="coach__body">
+          <h3 class="coach__name">Stephanie Raymond</h3>
+          <p class="coach__cred">WNBA Draft Pick · Professional Athlete · Championship Quarterback</p>
+          <div class="coach__bio coach__bio--lead">
+            <div><p>Stephanie Raymond brings an exceptional multi-sport background and a powerful perspective on leadership, decision-making, and athlete development.</p></div>
+          </div>
+          <div class="coach__bio" id="bio-steph">
+            <div>
+              <p>After a standout career at Northern Illinois University, Stephanie was selected by the Chicago Sky in the 2007 WNBA Draft. She continued her basketball career professionally, including several seasons competing internationally.</p>
+              <p>Stephanie later transitioned into football, competing in flag football before becoming the quarterback of the Chicago Blitz. She helped lead the team to a championship and earned Offensive Player of the Year recognition.</p>
+              <p>Her experience developing across multiple sports gives her a unique understanding of vision, anticipation, movement, communication, leadership, and the process of learning and performing a position at a high level.</p>
+            </div>
+          </div>
+          <button class="coach__toggle" type="button" aria-expanded="false" aria-controls="bio-steph" data-coach="Stephanie Raymond">
+            <span class="t">Read full bio</span><span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <!-- Additional production images: Stephanie coaching quarterback footwork; Stephanie teaching field vision; Stephanie interacting with athletes -->
+          <div class="coach__emph">
+            <h4>Areas of emphasis</h4>
+            <ul>
+              <li>Quarterback development</li><li>Offensive decision-making</li><li>Field vision</li>
+              <li>Anticipation</li><li>Footwork &amp; body control</li><li>Ball handling</li>
+              <li>Communication</li><li>Leadership</li><li>Multi-sport development</li><li>Confidence under pressure</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="coach-cap reveal">
+      <h3 class="display">Three perspectives.<br><span class="accent">One standard.</span></h3>
+      <div>
+        <p class="lead" style="color:var(--muted)">F3 athletes will be exposed to coaching perspectives shaped by professional football, elite flag competition, professional basketball, championship quarterback play, athlete development, and high-performance environments. The goal is not to force every athlete into the same mold. The goal is to give each athlete the individual correction, competitive environment, and developmental structure they need.</p>
+        <p class="disclaimer">Specific coaches, coaching assignments, and session participation may vary based on curriculum, athlete positions, group needs, scheduling, and availability. Not every coach attends every session.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRAINING CURRICULUM — accessible week selector (ARIA tabs)
+     Desktop: vertical tab rail + panel. Mobile: horizontal tab strip.
+     ============================================================ -->
+<section class="section on-dark" id="curriculum" aria-labelledby="cur-h">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">The foundation · first eight weeks</p>
+      <h2 class="display h-lg" id="cur-h">Built to create more complete flag football athletes.</h2>
+    </div>
+
+    <div class="curric reveal">
+      <div class="weektabs" role="tablist" aria-label="Foundation curriculum, weeks one through eight" aria-orientation="vertical">
+        <button class="weektab" role="tab" id="wtab-1" aria-controls="wpanel-1" aria-selected="true" tabindex="0"><span class="num">01</span><span class="lbl">Baseline &amp; Movement</span></button>
+        <button class="weektab" role="tab" id="wtab-2" aria-controls="wpanel-2" aria-selected="false" tabindex="-1"><span class="num">02</span><span class="lbl">Speed &amp; Footwork</span></button>
+        <button class="weektab" role="tab" id="wtab-3" aria-controls="wpanel-3" aria-selected="false" tabindex="-1"><span class="num">03</span><span class="lbl">Releases &amp; Separation</span></button>
+        <button class="weektab" role="tab" id="wtab-4" aria-controls="wpanel-4" aria-selected="false" tabindex="-1"><span class="num">04</span><span class="lbl">Vision &amp; Decisions</span></button>
+        <button class="weektab" role="tab" id="wtab-5" aria-controls="wpanel-5" aria-selected="false" tabindex="-1"><span class="num">05</span><span class="lbl">Routes &amp; Coverage</span></button>
+        <button class="weektab" role="tab" id="wtab-6" aria-controls="wpanel-6" aria-selected="false" tabindex="-1"><span class="num">06</span><span class="lbl">Ball Skills &amp; QB–WR</span></button>
+        <button class="weektab" role="tab" id="wtab-7" aria-controls="wpanel-7" aria-selected="false" tabindex="-1"><span class="num">07</span><span class="lbl">Competitive Application</span></button>
+        <button class="weektab" role="tab" id="wtab-8" aria-controls="wpanel-8" aria-selected="false" tabindex="-1"><span class="num">08</span><span class="lbl">Retest &amp; Plan</span></button>
+      </div>
+
+      <div class="weekpanels">
+        <div class="weekpanel" role="tabpanel" id="wpanel-1" aria-labelledby="wtab-1" tabindex="0">
+          <span class="kicker">01</span><h3>Baseline, Goals &amp; Movement</h3>
+          <ul><li><span class="tick"></span>Individual athlete assessment</li><li><span class="tick"></span>Stance and start mechanics</li><li><span class="tick"></span>Movement efficiency</li><li><span class="tick"></span>Position and development goals</li><li><span class="tick"></span>Coachability standards</li><li><span class="tick"></span>Work-habit expectations</li></ul>
+        </div>
+        <div class="weekpanel" role="tabpanel" id="wpanel-2" aria-labelledby="wtab-2" tabindex="0" hidden>
+          <span class="kicker">02</span><h3>Speed, Footwork &amp; Body Control</h3>
+          <ul><li><span class="tick"></span>Acceleration</li><li><span class="tick"></span>Deceleration</li><li><span class="tick"></span>Change of direction</li><li><span class="tick"></span>Balance and posture</li><li><span class="tick"></span>Efficient transitions</li><li><span class="tick"></span>Position-specific footwork</li></ul>
+        </div>
+        <div class="weekpanel" role="tabpanel" id="wpanel-3" aria-labelledby="wtab-3" tabindex="0" hidden>
+          <span class="kicker">03</span><h3>Releases, Leverage &amp; Separation</h3>
+          <ul><li><span class="tick"></span>Receiver release techniques</li><li><span class="tick"></span>Defensive leverage</li><li><span class="tick"></span>Hip discipline</li><li><span class="tick"></span>Creating space</li><li><span class="tick"></span>Eliminating space</li><li><span class="tick"></span>Understanding positional advantage</li></ul>
+        </div>
+        <div class="weekpanel" role="tabpanel" id="wpanel-4" aria-labelledby="wtab-4" tabindex="0" hidden>
+          <span class="kicker">04</span><h3>Vision, Recognition &amp; Decision-Making</h3>
+          <ul><li><span class="tick"></span>Reading offensive and defensive cues</li><li><span class="tick"></span>Quarterback vision and progression</li><li><span class="tick"></span>Route recognition</li><li><span class="tick"></span>Anticipation</li><li><span class="tick"></span>Reacting under pressure</li><li><span class="tick"></span>Understanding situational context</li></ul>
+        </div>
+        <div class="weekpanel" role="tabpanel" id="wpanel-5" aria-labelledby="wtab-5" tabindex="0" hidden>
+          <span class="kicker">05</span><h3>Route Running, Coverage &amp; Flag Pulling</h3>
+          <ul><li><span class="tick"></span>Route detail</li><li><span class="tick"></span>Route timing</li><li><span class="tick"></span>Man-coverage principles</li><li><span class="tick"></span>Approach angles</li><li><span class="tick"></span>Breakdown position</li><li><span class="tick"></span>Open-field discipline</li><li><span class="tick"></span>Flag-pulling technique</li></ul>
+        </div>
+        <div class="weekpanel" role="tabpanel" id="wpanel-6" aria-labelledby="wtab-6" tabindex="0" hidden>
+          <span class="kicker">06</span><h3>Ball Skills &amp; Quarterback–Receiver Connection</h3>
+          <ul><li><span class="tick"></span>Tracking the football</li><li><span class="tick"></span>Catching under pressure</li><li><span class="tick"></span>Playing through the hands</li><li><span class="tick"></span>Throwing mechanics</li><li><span class="tick"></span>Ball placement</li><li><span class="tick"></span>Timing</li><li><span class="tick"></span>Communication</li></ul>
+        </div>
+        <div class="weekpanel" role="tabpanel" id="wpanel-7" aria-labelledby="wtab-7" tabindex="0" hidden>
+          <span class="kicker">07</span><h3>Competitive Application</h3>
+          <ul><li><span class="tick"></span>One-on-one repetitions</li><li><span class="tick"></span>Position-specific competition</li><li><span class="tick"></span>Small-space decision-making</li><li><span class="tick"></span>Situational execution</li><li><span class="tick"></span>Responding after mistakes</li><li><span class="tick"></span>Applying coaching under pressure</li></ul>
+        </div>
+        <div class="weekpanel" role="tabpanel" id="wpanel-8" aria-labelledby="wtab-8" tabindex="0" hidden>
+          <span class="kicker">08</span><h3>Retest, Competition &amp; Development Plan</h3>
+          <ul><li><span class="tick"></span>Final assessment</li><li><span class="tick"></span>Competitive evaluation</li><li><span class="tick"></span>Progress review</li><li><span class="tick"></span>Athlete feedback</li><li><span class="tick"></span>Parent feedback</li><li><span class="tick"></span>Recommended next steps</li></ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="disclaimer reveal" style="margin-top:28px">The coaching team may adjust individual sessions and position groups based on the age, experience, positions, and developmental priorities of the athletes accepted into each cohort.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHAT ATHLETES RECEIVE
+     ============================================================ -->
+<section class="section on-paper" aria-labelledby="diff-h">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">The F3 difference</p>
+      <h2 class="display h-lg" id="diff-h">Every athlete leaves with more than reps.</h2>
+    </div>
+    <div class="diff">
+      <article class="diffcard reveal"><div class="n">01</div><h3>Individual evaluation</h3><p>Understand current strengths, limitations, habits, and developmental priorities.</p></article>
+      <article class="diffcard reveal"><div class="n">02</div><h3>Technical correction</h3><p>Receive specific feedback that can be understood and applied immediately.</p></article>
+      <article class="diffcard reveal"><div class="n">03</div><h3>Purposeful repetitions</h3><p>Train in small groups where athletes cannot disappear at the back of a line.</p></article>
+      <article class="diffcard reveal"><div class="n">04</div><h3>Accountability</h3><p>Develop better habits around preparation, attendance, effort, communication, and follow-through.</p></article>
+      <article class="diffcard reveal"><div class="n">05</div><h3>Progress communication</h3><p>Parents receive clear communication about what their athlete is working on and where continued attention is needed.</p></article>
+      <article class="diffcard reveal"><div class="n">06</div><h3>A development roadmap</h3><p>Finish the phase with defined priorities and recommended next steps.</p></article>
+    </div>
+    <p class="pullquote reveal" style="margin-top:48px">The goal is not to make an athlete look busy. The goal is to help them become better.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     WHO THE PROGRAM IS FOR (split layout)
+     ============================================================ -->
+<section class="section" id="fit" aria-labelledby="fit-h">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">Program fit</p>
+      <h2 class="display h-lg" id="fit-h">F3 may be for your athlete if…</h2>
+    </div>
+    <div class="fit">
+      <div class="fitcol fitcol--yes reveal">
+        <h3>This is for athletes who:</h3>
+        <ul>
+          <li><span class="mark mark--yes" aria-hidden="true">✓</span>Want more focused development than team practice provides</li>
+          <li><span class="mark mark--yes" aria-hidden="true">✓</span>Care about becoming technically better</li>
+          <li><span class="mark mark--yes" aria-hidden="true">✓</span>Respond well to direct coaching</li>
+          <li><span class="mark mark--yes" aria-hidden="true">✓</span>Are willing to be challenged</li>
+          <li><span class="mark mark--yes" aria-hidden="true">✓</span>Can attend consistently</li>
+          <li><span class="mark mark--yes" aria-hidden="true">✓</span>Want to understand the game, not just participate</li>
+          <li><span class="mark mark--yes" aria-hidden="true">✓</span>Are willing to work outside scheduled sessions</li>
+          <li><span class="mark mark--yes" aria-hidden="true">✓</span>Want to improve at a specific skill position</li>
+          <li><span class="mark mark--yes" aria-hidden="true">✓</span>Play multiple positions and want to understand how the game connects</li>
+          <li><span class="mark mark--yes" aria-hidden="true">✓</span>Are personally interested in becoming better</li>
+        </ul>
+      </div>
+      <div class="fitcol fitcol--no reveal">
+        <h3>This is probably not the right fit if:</h3>
+        <ul>
+          <li><span class="mark mark--no" aria-hidden="true">×</span>The athlete only wants casual extra activity</li>
+          <li><span class="mark mark--no" aria-hidden="true">×</span>Attendance will be inconsistent</li>
+          <li><span class="mark mark--no" aria-hidden="true">×</span>The family is primarily interested in rankings or exposure</li>
+          <li><span class="mark mark--no" aria-hidden="true">×</span>The athlete is unwilling to accept correction</li>
+          <li><span class="mark mark--no" aria-hidden="true">×</span>The athlete is being forced to participate</li>
+          <li><span class="mark mark--no" aria-hidden="true">×</span>The family wants a one-day camp</li>
+          <li><span class="mark mark--no" aria-hidden="true">×</span>The family wants a drop-in training session</li>
+          <li><span class="mark mark--no" aria-hidden="true">×</span>The athlete is not prepared to work between sessions</li>
+          <li><span class="mark mark--no" aria-hidden="true">×</span>The family expects guaranteed recruiting or playing outcomes</li>
+        </ul>
+      </div>
+    </div>
+    <p class="pullquote reveal" style="margin-top:48px">We are not looking for perfect athletes. We are looking for athletes prepared to take responsibility for their development.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     APPLICATION & SELECTION PROCESS
+     ============================================================ -->
+<section class="section on-dark" aria-labelledby="proc-h">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">How selection works</p>
+      <h2 class="display h-lg" id="proc-h">Earn your place in the founding cohort.</h2>
+      <p class="lead">The application process protects the quality of the training environment. Small groups only work when the athletes are willing to participate fully, accept feedback, attend consistently, and contribute to the standard of the group.</p>
+    </div>
+    <div class="steps">
+      <article class="step reveal"><div class="n">1</div><h3>Apply</h3><p>A parent or guardian completes the athlete application.</p></article>
+      <article class="step reveal"><div class="n">2</div><h3>Review</h3><p>The F3 team reviews age, experience, goals, position, availability, commitment, and developmental fit.</p></article>
+      <article class="step reveal"><div class="n">3</div><h3>Placement</h3><p>Accepted athletes are placed into the cohort that best fits their age, physical maturity, experience, position, and current developmental needs.</p></article>
+      <article class="step reveal"><div class="n">4</div><h3>Enroll</h3><p>The parent completes payment, registration, waiver, and onboarding to secure the athlete's place.</p></article>
+    </div>
+    <p class="disclaimer reveal" style="margin-top:28px">Submitting an application does not guarantee acceptance. Cohorts will be kept intentionally small, and athletes must be a strong fit for the program standards and available group.</p>
+    <div class="reveal" style="margin-top:30px"><a class="btn btn--lg" href="#apply" data-cta="primary">Apply now</a></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING
+     ============================================================ -->
+<section class="section on-paper" aria-labelledby="price-h">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">Founding cohort investment</p>
+      <h2 class="display h-lg" id="price-h">A serious commitment to development.</h2>
+    </div>
+    <div class="price">
+      <div class="pricecard reveal">
+        <div class="amt">$299</div>
+        <div class="per">Per month</div>
+        <p class="note">Ongoing monthly membership · billed monthly</p>
+        <a class="btn btn--block" href="#apply" data-cta="primary" style="margin-top:24px">Apply for a founding seat</a>
+        <p class="note" style="margin-top:14px">No payment is required to submit an application. Accepted athletes will receive a private enrollment link to secure their place.</p>
+      </div>
+      <div class="reveal">
+        <ul class="pricelist">
+          <li><span class="tick"></span>Structured eight-week foundation, then ongoing</li>
+          <li><span class="tick"></span>Four sessions each month</li>
+          <li><span class="tick"></span>One 75-minute session each week</li>
+          <li><span class="tick"></span>Initial assessment included</li>
+          <li><span class="tick"></span>Final evaluation included</li>
+          <li><span class="tick"></span>Individual development priorities</li>
+          <li><span class="tick"></span>Position-specific instruction</li>
+          <li><span class="tick"></span>Parent progress communication</li>
+          <li><span class="tick"></span>Maximum eight athletes per group</li>
+        </ul>
+        <p class="price-note"><strong>An ongoing monthly membership, billed each month.</strong> This is a progressive program, not a drop-in clinic.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOUNDING COHORT
+     ============================================================ -->
+<section class="section on-navy" aria-labelledby="found-h">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">Become a founding athlete</p>
+      <h2 class="display h-lg" id="found-h">Help set the standard.</h2>
+      <p class="lead">The Founding Cohort will help establish the culture, expectations, and athlete-development system for F3 Flag.</p>
+    </div>
+    <div class="founding">
+      <div class="reveal">
+        <ul class="foundlist">
+          <li><span class="tick"></span>Priority consideration for future F3 development phases</li>
+          <li><span class="tick"></span>Founding Athlete recognition</li>
+          <li><span class="tick"></span>Baseline and final development reports</li>
+          <li><span class="tick"></span>Individual developmental priorities</li>
+          <li><span class="tick"></span>Opportunities to participate in future F3 events</li>
+          <li><span class="tick"></span>Opportunities to be featured in F3 and Flag Football Finder content</li>
+          <li><span class="tick"></span>A direct role in shaping the future athlete experience</li>
+        </ul>
+        <p class="disclaimer" style="margin-top:24px">Participation in photos, videos, interviews, testimonials, or promotional content will always require parent permission and is not required for acceptance.</p>
+      </div>
+      <!-- IMAGE — small-group huddle / founding athletes. Swap src for: /images/founding-huddle.jpg -->
+      <div class="media reveal" data-ratio="3-2">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 3 2'%3E%3Crect width='3' height='2' fill='%23141414'/%3E%3Crect x='.2' y='.2' width='.6' height='.07' fill='%231aae52'/%3E%3C/svg%3E"
+             width="900" height="600" loading="lazy" alt="A small group of flag football athletes in a huddle with a coach" />
+        <span class="media__tag">Small-group huddle</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ — accessible accordion (button + region, keyboard ready)
+     ============================================================ -->
+<section class="section" id="faq" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">Questions, answered</p>
+      <h2 class="display h-lg" id="faq-h">Frequently asked questions</h2>
+    </div>
+
+    <div class="faq reveal">
+      <!-- Each item: button controls a region panel. JS toggles aria-expanded + .open -->
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-1" id="faqb-1">Does my athlete have to be considered elite?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-1" role="region" aria-labelledby="faqb-1"><div>
+          <p>No. Current talent level is not the primary selection factor. F3 is designed for athletes who are committed, coachable, available, and motivated to improve.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-2" id="faqb-2">What ages can apply?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-2" role="region" aria-labelledby="faqb-2"><div>
+          <p>The initial program is expected to serve athletes approximately 10–17 years old. Final cohorts will be grouped according to age, physical maturity, experience, position, developmental priorities, and competitive fit.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-3" id="faqb-3">What positions can apply?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-3" role="region" aria-labelledby="faqb-3"><div>
+          <p>The program is primarily designed for quarterbacks, wide receivers, defensive backs, centers, running backs, and versatile offensive and defensive skill athletes. The initial program is not designed as offensive or defensive line training.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-4" id="faqb-4">Is this only for defensive backs?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-4" role="region" aria-labelledby="faqb-4"><div>
+          <p>No. The founding coaching team brings experience across defensive back play, wide receiver development, quarterback decision-making, speed, movement, ball skills, flag pulling, route concepts, leadership, and overall athlete development.</p>
+          <p>Training will include shared development principles and position-specific instruction when appropriate.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-5" id="faqb-5">Is prior flag football experience required?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-5" role="region" aria-labelledby="faqb-5"><div>
+          <p>Some playing experience is preferred, but athletes will be evaluated individually. Commitment, readiness to learn, and cohort fit matter more than résumé length.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-6" id="faqb-6">Will all three coaches attend every session?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-6" role="region" aria-labelledby="faqb-6"><div>
+          <p>The F3 Founding Cohort is supported by Morris Claiborne, Kevin Dickens Jr., and Stephanie Raymond. Specific coaching assignments and session participation may vary based on the curriculum, athlete positions, group needs, scheduling, and coach availability.</p>
+          <p>Families will receive applicable scheduling and coaching information before enrollment. The program's standards, small-group structure, curriculum, and athlete-development process will remain consistent across the phase.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-7" id="faqb-7">How will athletes be grouped?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-7" role="region" aria-labelledby="faqb-7"><div>
+          <p>Athletes may be grouped by age, physical maturity, experience, position, developmental priorities, and competitive fit. The goal is not simply to place athletes of the same age together. It is to create groups in which every athlete can be challenged safely and receive meaningful repetitions.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-8" id="faqb-8">Where will training take place?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-8" role="region" aria-labelledby="faqb-8"><div>
+          <p>Training will take place in the Dallas–Fort Worth area. The exact recurring location will be confirmed before accepted athletes complete enrollment.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-9" id="faqb-9">What happens if my athlete misses a session?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-9" role="region" aria-labelledby="faqb-9"><div>
+          <p>Because the program is built around consistency and progression, families should only apply if they can attend most sessions. Missed sessions are not automatically refunded, credited, or rescheduled. Any specific make-up policy will be provided before enrollment.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-10" id="faqb-10">Can we attend one session before committing?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-10" role="region" aria-labelledby="faqb-10"><div>
+          <p>No. F3 is a progressive, ongoing development program rather than a drop-in clinic. Accepted athletes join as monthly members and commit to consistent weekly attendance.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-11" id="faqb-11">Does applying guarantee a place?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-11" role="region" aria-labelledby="faqb-11"><div>
+          <p>No. Space is limited, and applications are reviewed for commitment, coachability, schedule, position, age-group fit, and overall cohort composition.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-12" id="faqb-12">When does the program begin?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-12" role="region" aria-labelledby="faqb-12"><div>
+          <p>The first official training session is scheduled for Saturday, August 1, 2026. Accepted families may also be invited to an assessment and parent orientation on July 25, 2026.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-13" id="faqb-13">How much does it cost?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-13" role="region" aria-labelledby="faqb-13"><div>
+          <p>F3 Flag is $299 per month, billed monthly on an ongoing basis. No payment is required until an athlete has been accepted.</p>
+        </div></div>
+      </div>
+
+      <div class="faq__item">
+        <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-14" id="faqb-14">Is F3 a recruiting service?<span class="ico" aria-hidden="true"></span></button></h3>
+        <div class="faq__panel" id="faq-14" role="region" aria-labelledby="faqb-14"><div>
+          <p>No. F3 is an athlete-development program. The program does not guarantee recruiting attention, scholarships, roster placement, rankings, exposure, or playing time.</p>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FINAL CTA
+     ============================================================ -->
+<section class="section final" aria-labelledby="final-h">
+  <div class="wrap final__inner">
+    <p class="eyebrow reveal" style="justify-content:center">The next step</p>
+    <h2 class="display h-lg reveal" id="final-h">
+      Your athlete does not need a bigger audience.<br>
+      <span class="l2">Your athlete needs the right environment.</span>
+    </h2>
+    <p class="lead reveal">Learn within a small-group development program supported by coaches with experience in professional football, elite flag competition, professional women's sports, championship play, quarterback development, receiver development, defensive back technique, leadership, and high-performance environments. The opportunity is not reserved for the athlete with the biggest name. It is for the athlete ready to work.</p>
+    <div class="reveal"><a class="btn btn--lg" href="#apply" data-cta="primary">Apply for the F3 founding cohort</a></div>
+    <p class="fine reveal">Training begins August 1. Applications are reviewed for commitment, coachability, position fit, availability, developmental need, and cohort composition.</p>
+    <!-- Program philosophy (not an attributed quote): "Talent may get attention. Preparation is what allows an athlete to keep progressing." -->
+    <p class="fine reveal" style="margin-top:18px;font-style:italic">Program philosophy: Talent may get attention. Preparation is what allows an athlete to keep progressing.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     APPLICATION FORM
+     -----------------------------------------------------------
+     CONNECTING THE FORM (choose one — see submitApplication() in JS):
+       • Airtable   : POST to your Airtable Web API / or via Make webhook
+       • Make.com   : set FORM_ENDPOINT to your Make custom webhook URL
+       • Webflow    : replace <form> action with your Webflow form endpoint
+       • Fillout    : replace the .formcard contents with a Fillout embed
+       • Tally      : replace the .formcard contents with a Tally embed
+       • Typeform/Jotform : embed script in place of .formcard
+       • Custom API : set FORM_ENDPOINT to your endpoint (expects JSON)
+     The submission payload includes captured UTMs, referrer, landing URL,
+     and a consent_timestamp. Medical/health answers are NEVER sent to analytics.
+     ============================================================ -->
+<section class="section on-paper" id="apply" aria-labelledby="apply-h">
+  <div class="wrap form-wrap">
+    <div class="shead reveal">
+      <p class="eyebrow">Athlete application</p>
+      <h2 class="display h-lg" id="apply-h">Submit your athlete application</h2>
+      <p class="lead">No payment is required to apply. Our team reviews each application for commitment, coachability, position fit, availability, developmental need, and cohort composition.</p>
+    </div>
+
+    <div class="formcard reveal">
+      <!-- SUCCESS STATE -->
+      <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+        <div class="check-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Application received</h3>
+        <p>Thank you for applying to the F3 Flag Founding Development Cohort. Our team will review the information and contact your family with next steps.</p>
+      </div>
+
+      <!-- Set action as a fallback; JS intercepts submit. novalidate so custom validation runs. -->
+      <form id="applyForm" action="REPLACE_WITH_FORM_ENDPOINT" method="post" novalidate>
+
+        <!-- ===== Hidden tracking / attribution fields ===== -->
+        <input type="hidden" name="utm_source" id="utm_source" />
+        <input type="hidden" name="utm_medium" id="utm_medium" />
+        <input type="hidden" name="utm_campaign" id="utm_campaign" />
+        <input type="hidden" name="utm_content" id="utm_content" />
+        <input type="hidden" name="utm_term" id="utm_term" />
+        <input type="hidden" name="source" id="hid_source" />
+        <input type="hidden" name="campaign" id="hid_campaign" />
+        <input type="hidden" name="content" id="hid_content" />
+        <input type="hidden" name="medium" id="hid_medium" />
+        <input type="hidden" name="term" id="hid_term" />
+        <input type="hidden" name="referrer" id="hid_referrer" />
+        <input type="hidden" name="landing_page_url" id="hid_landing" />
+        <input type="hidden" name="consent_timestamp" id="hid_consent_ts" />
+        <!-- Honeypot (spam trap) — must stay empty; hidden from users and AT -->
+        <input type="text" name="company_website" id="hp_field" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+
+        <!-- ===== Parent / Guardian ===== -->
+        <fieldset>
+          <legend class="fs-head">Parent or guardian information</legend>
+          <p class="fs-sub">We'll use this to contact your family about the application.</p>
+          <div class="grid2">
+            <div class="field full">
+              <label for="p_name">Parent / guardian full name <span class="req" aria-hidden="true">*</span></label>
+              <input id="p_name" name="parent_name" type="text" required autocomplete="name" />
+              <p class="err" id="err-p_name"></p>
+            </div>
+            <div class="field">
+              <label for="p_email">Email address <span class="req" aria-hidden="true">*</span></label>
+              <input id="p_email" name="parent_email" type="email" required autocomplete="email" inputmode="email" />
+              <p class="err" id="err-p_email"></p>
+            </div>
+            <div class="field">
+              <label for="p_phone">Mobile phone number <span class="req" aria-hidden="true">*</span></label>
+              <input id="p_phone" name="parent_phone" type="tel" required autocomplete="tel" inputmode="tel" />
+              <p class="err" id="err-p_phone"></p>
+            </div>
+            <div class="field">
+              <label for="p_city">City <span class="req" aria-hidden="true">*</span></label>
+              <input id="p_city" name="city" type="text" required autocomplete="address-level2" />
+              <p class="err" id="err-p_city"></p>
+            </div>
+            <div class="field">
+              <label for="p_zip">ZIP code <span class="req" aria-hidden="true">*</span></label>
+              <input id="p_zip" name="zip" type="text" required autocomplete="postal-code" inputmode="numeric" pattern="[0-9]{5}(-[0-9]{4})?" />
+              <p class="err" id="err-p_zip"></p>
+            </div>
+            <div class="field">
+              <label for="p_contact">Preferred contact method <span class="req" aria-hidden="true">*</span></label>
+              <select id="p_contact" name="preferred_contact" required>
+                <option value="">Select one…</option>
+                <option>Email</option><option>Text message</option><option>Phone call</option>
+              </select>
+              <p class="err" id="err-p_contact"></p>
+            </div>
+            <div class="field">
+              <label for="p_rel">Relationship to athlete <span class="req" aria-hidden="true">*</span></label>
+              <select id="p_rel" name="relationship" required>
+                <option value="">Select one…</option>
+                <option>Parent</option><option>Guardian</option><option>Grandparent</option><option>Other</option>
+              </select>
+              <p class="err" id="err-p_rel"></p>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ===== Athlete ===== -->
+        <fieldset>
+          <legend class="fs-head">Athlete information</legend>
+          <div class="grid2">
+            <div class="field full">
+              <label for="a_name">Athlete full name <span class="req" aria-hidden="true">*</span></label>
+              <input id="a_name" name="athlete_name" type="text" required />
+              <p class="err" id="err-a_name"></p>
+            </div>
+            <div class="field">
+              <label for="a_dob">Date of birth <span class="req" aria-hidden="true">*</span></label>
+              <input id="a_dob" name="athlete_dob" type="date" required autocomplete="bday" />
+              <p class="err" id="err-a_dob"></p>
+            </div>
+            <div class="field">
+              <label for="a_age">Current age <span class="req" aria-hidden="true">*</span></label>
+              <input id="a_age" name="athlete_age" type="number" min="6" max="19" required inputmode="numeric" />
+              <p class="err" id="err-a_age"></p>
+            </div>
+            <div class="field">
+              <label for="a_grad">Graduation year <span class="req" aria-hidden="true">*</span></label>
+              <input id="a_grad" name="grad_year" type="number" min="2026" max="2040" required inputmode="numeric" placeholder="e.g. 2031" />
+              <p class="err" id="err-a_grad"></p>
+            </div>
+            <div class="field">
+              <label for="a_pos1">Primary position <span class="req" aria-hidden="true">*</span></label>
+              <select id="a_pos1" name="primary_position" required>
+                <option value="">Select one…</option>
+                <option>Quarterback</option><option>Wide receiver</option><option>Defensive back</option>
+                <option>Center</option><option>Running back</option><option>Versatile / multiple</option>
+              </select>
+              <p class="err" id="err-a_pos1"></p>
+            </div>
+            <div class="field">
+              <label for="a_pos2">Secondary position <span class="hint">(optional)</span></label>
+              <select id="a_pos2" name="secondary_position">
+                <option value="">Select one…</option>
+                <option>Quarterback</option><option>Wide receiver</option><option>Defensive back</option>
+                <option>Center</option><option>Running back</option><option>Versatile / multiple</option><option>None</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="a_team">Current team or organization <span class="hint">(optional)</span></label>
+              <input id="a_team" name="current_team" type="text" autocomplete="organization" />
+            </div>
+            <div class="field">
+              <label for="a_exp">Years of flag football experience <span class="req" aria-hidden="true">*</span></label>
+              <input id="a_exp" name="years_experience" type="number" min="0" max="15" required inputmode="numeric" />
+              <p class="err" id="err-a_exp"></p>
+            </div>
+            <div class="field">
+              <label for="a_othersports">Other sports played <span class="hint">(optional)</span></label>
+              <input id="a_othersports" name="other_sports" type="text" />
+            </div>
+            <div class="field">
+              <label for="a_school">Current school <span class="hint">(optional)</span></label>
+              <input id="a_school" name="school" type="text" />
+            </div>
+            <div class="field full">
+              <label for="a_ig">Athlete Instagram handle <span class="hint">(optional)</span></label>
+              <input id="a_ig" name="athlete_instagram" type="text" placeholder="@handle" />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ===== Development questions ===== -->
+        <fieldset>
+          <legend class="fs-head">Development questions</legend>
+          <p class="fs-sub">These answers help us understand fit and developmental priorities.</p>
+          <div class="field">
+            <label for="d_improve">What does your athlete most want to improve? <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="d_improve" name="q_improve" required></textarea>
+            <p class="err" id="err-d_improve"></p>
+          </div>
+          <div class="field">
+            <label for="d_why">Why is your athlete interested in F3? <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="d_why" name="q_why" required></textarea>
+            <p class="err" id="err-d_why"></p>
+          </div>
+          <div class="field">
+            <label for="d_serious">What does being a serious athlete mean to your family? <span class="hint">(optional)</span></label>
+            <textarea id="d_serious" name="q_serious"></textarea>
+          </div>
+          <div class="field">
+            <label for="d_coaching">How does your athlete typically respond to direct coaching? <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="d_coaching" name="q_coaching" required></textarea>
+            <p class="err" id="err-d_coaching"></p>
+          </div>
+          <div class="field">
+            <label for="d_outside">One example of your athlete working to improve outside team practice <span class="hint">(optional)</span></label>
+            <textarea id="d_outside" name="q_outside"></textarea>
+          </div>
+          <div class="field">
+            <label for="d_strengths">What are your athlete's current strengths? <span class="hint">(optional)</span></label>
+            <textarea id="d_strengths" name="q_strengths"></textarea>
+          </div>
+          <div class="field">
+            <label for="d_areas">What areas have coaches identified for improvement? <span class="hint">(optional)</span></label>
+            <textarea id="d_areas" name="q_areas"></textarea>
+          </div>
+          <div class="field">
+            <label for="d_success">What would make F3 Flag successful for your athlete? <span class="hint">(optional)</span></label>
+            <textarea id="d_success" name="q_success"></textarea>
+          </div>
+          <div class="field">
+            <label for="d_medical">Any injuries, physical limitations, allergies, accessibility needs, or medical considerations the coaching staff should know about? <span class="hint">(optional)</span></label>
+            <textarea id="d_medical" name="q_medical" aria-describedby="medical-note"></textarea>
+            <p class="hint" id="medical-note">Kept private for the coaching staff only. Never shown publicly or used for marketing.</p>
+          </div>
+        </fieldset>
+
+        <!-- ===== Availability ===== -->
+        <fieldset>
+          <legend class="fs-head">Availability</legend>
+          <div class="grid2">
+            <div class="field">
+              <label for="av_sat">Can the athlete attend Saturday sessions beginning Aug 1? <span class="req" aria-hidden="true">*</span></label>
+              <select id="av_sat" name="avail_saturday" required>
+                <option value="">Select one…</option><option>Yes</option><option>Most Saturdays</option><option>No / unsure</option>
+              </select>
+              <p class="err" id="err-av_sat"></p>
+            </div>
+            <div class="field">
+              <label for="av_orient">Can the athlete attend an assessment / orientation on July 25? <span class="req" aria-hidden="true">*</span></label>
+              <select id="av_orient" name="avail_orientation" required>
+                <option value="">Select one…</option><option>Yes</option><option>Probably</option><option>No / unsure</option>
+              </select>
+              <p class="err" id="err-av_orient"></p>
+            </div>
+            <div class="field">
+              <label for="av_window">Preferred session window <span class="hint">(optional)</span></label>
+              <select id="av_window" name="preferred_window">
+                <option value="">No preference</option><option>Morning</option><option>Midday</option><option>Afternoon</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="av_allweeks">Can the athlete attend weekly Saturday sessions consistently? <span class="req" aria-hidden="true">*</span></label>
+              <select id="av_allweeks" name="avail_all_weeks" required>
+                <option value="">Select one…</option><option>Yes</option><option>Most weeks</option><option>No / unsure</option>
+              </select>
+              <p class="err" id="err-av_allweeks"></p>
+            </div>
+            <div class="field">
+              <label for="av_othersport">Will the athlete participate in another sport during the program? <span class="hint">(optional)</span></label>
+              <select id="av_othersport" name="concurrent_sport">
+                <option value="">Select one…</option><option>No</option><option>Yes</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="av_conflicts">Known recurring scheduling conflicts <span class="hint">(optional)</span></label>
+              <textarea id="av_conflicts" name="schedule_conflicts"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- ===== Commitment confirmations (required checkboxes) ===== -->
+        <fieldset>
+          <legend class="fs-head">Commitment confirmations</legend>
+          <p class="fs-sub">Please confirm the following. All are required to submit.</p>
+          <div class="checks" id="confirmGroup">
+            <label class="check"><input type="checkbox" name="c_application" required /><span>We understand this is an application-based program.</span></label>
+            <label class="check"><input type="checkbox" name="c_noguarantee" required /><span>We understand submitting an application does not guarantee acceptance.</span></label>
+            <label class="check"><input type="checkbox" name="c_fullphase" required /><span>We can commit to consistent weekly attendance.</span></label>
+            <label class="check"><input type="checkbox" name="c_cost" required /><span>We understand the program is $299 per month, billed monthly on an ongoing basis.</span></label>
+            <label class="check"><input type="checkbox" name="c_missed" required /><span>We understand missed sessions are not automatically refunded or credited.</span></label>
+            <label class="check"><input type="checkbox" name="c_interest" required /><span>The athlete is personally interested in participating.</span></label>
+            <label class="check"><input type="checkbox" name="c_comms" required /><span>We agree to receive application-related email and text communication.</span></label>
+            <label class="check"><input type="checkbox" name="c_accurate" required /><span>We certify that the information in this application is accurate.</span></label>
+            <label class="check"><input type="checkbox" name="c_waivers" required /><span>We understand that waivers and additional enrollment documents will be required if accepted.</span></label>
+          </div>
+          <p class="err" id="err-confirmGroup"></p>
+        </fieldset>
+
+        <div class="form-actions">
+          <button class="btn btn--lg btn--block" type="submit" id="submitBtn" aria-busy="false">
+            <span class="spinner" aria-hidden="true"></span><span class="btn-label">Submit athlete application</span>
+          </button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <p class="under-cta">No payment is required to submit an application. Accepted athletes will receive a private enrollment link to secure their place.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <span class="brand__name" style="color:#fff;font-family:var(--display);font-size:2rem">F3<span style="color:var(--accent)">.</span>FLAG</span>
+        <p style="color:var(--muted-dark);font-weight:700;letter-spacing:.28em;text-transform:uppercase;font-size:.66rem;margin-top:8px">Focus · Fundamentals · Finish</p>
+        <p class="footer__powered">Powered by Flag Football Finder.</p>
+      </div>
+      <nav class="footer__links" aria-label="Footer">
+        <a href="#apply">Apply</a>
+        <a href="#program">The Program</a>
+        <a href="#coaches">Coaching Team</a>
+        <a href="#faq">FAQ</a>
+        <!-- Replace # with real legal/contact URLs before launch -->
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms</a>
+        <a href="/refund-attendance-policy">Refund &amp; Attendance Policy</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+    <div class="footer__legal">
+      <p>© 2026 F3 Flag. All rights reserved.</p>
+    </div>
+    <p class="footer__disclaimer" style="color:var(--muted-dark);font-size:.84rem;margin-top:14px">
+      F3 Flag is an independent athlete-development program powered by Flag Football Finder. Participation does not guarantee team selection, playing time, recruiting opportunities, scholarships, rankings, or professional outcomes.
+    </p>
+  </div>
+</footer>
+
+<!-- ============================================================
+     STICKY MOBILE APPLY BAR
+     ============================================================ -->
+<div class="mobile-cta" id="mobileCta">
+  <a class="btn" href="#apply" data-cta="primary">Apply for the founding cohort</a>
+</div>
+
+<!-- BACK TO TOP -->
+<button class="to-top" id="toTop" type="button" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<!-- ============================================================
+     TRACKING PLACEHOLDERS — paste real snippets, then set IDs.
+     No real/fake IDs are included. The analytics layer below
+     (window.f3track) fires gracefully whether or not these load.
+     ============================================================ -->
+<!-- GOOGLE ANALYTICS 4 (GA4) — replace G-XXXXXXXXXX
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+-->
+<!-- GOOGLE ADS CONVERSION TRACKING — replace AW-XXXXXXXXX / conversion label in f3track()
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+-->
+<!-- META (FACEBOOK) PIXEL — replace YOUR_PIXEL_ID
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'YOUR_PIXEL_ID'); fbq('track', 'PageView');
+</script>
+-->
+<!-- TIKTOK PIXEL — replace YOUR_TIKTOK_PIXEL_ID
+<script>
+  !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];/* ... */}(window,document,'ttq');
+  ttq.load('YOUR_TIKTOK_PIXEL_ID'); ttq.page();
+</script>
+-->
+
+<script>
+/* ============================================================
+   F3 FLAG — interaction + analytics layer (vanilla JS, no deps)
+   ============================================================ */
+(function(){
+  "use strict";
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Analytics dispatcher ----------
+     Pushes to dataLayer and forwards to GA4/Meta/TikTok if present.
+     Never receives sensitive health-answer contents. */
+  window.f3track = function(event, params){
+    params = params || {};
+    try { (window.dataLayer = window.dataLayer || []).push(Object.assign({event:'f3_'+event}, params)); } catch(e){}
+    try { if (typeof gtag === 'function') gtag('event', event, params); } catch(e){}
+    try {
+      if (typeof fbq === 'function'){
+        var fbMap = {form_submit:'SubmitApplication', form_success:'CompleteRegistration', primary_cta_click:'Lead'};
+        if (fbMap[event]) fbq('trackCustom', fbMap[event], params); else fbq('trackCustom', event, params);
+      }
+    } catch(e){}
+    try { if (typeof ttq !== 'undefined' && ttq.track) ttq.track(event, params); } catch(e){}
+  };
+
+  function $(s, c){ return (c||document).querySelector(s); }
+  function $all(s, c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); }
+  function ready(fn){ if(document.readyState!=='loading') fn(); else document.addEventListener('DOMContentLoaded', fn); }
+
+  ready(function(){
+    f3track('page_view', { page: 'f3-flag' });
+
+    /* ---------- UTM / attribution capture ---------- */
+    (function captureAttribution(){
+      var qs = new URLSearchParams(window.location.search);
+      var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+      var store = {};
+      // Prefer URL params; fall back to a persisted set from earlier in the session.
+      try { store = JSON.parse(sessionStorage.getItem('f3_attr')||'{}'); } catch(e){ store = {}; }
+      keys.forEach(function(k){
+        var v = qs.get(k);
+        if (v){ store[k] = v; }
+        var el = document.getElementById(k); if (el) el.value = store[k] || '';
+      });
+      try { sessionStorage.setItem('f3_attr', JSON.stringify(store)); } catch(e){}
+      // Mirror into the secondary hidden fields (source/medium/campaign/content/term)
+      var mirror = {hid_source:'utm_source',hid_medium:'utm_medium',hid_campaign:'utm_campaign',hid_content:'utm_content',hid_term:'utm_term'};
+      Object.keys(mirror).forEach(function(id){ var el=document.getElementById(id); if(el) el.value = store[mirror[id]]||''; });
+      var ref = document.getElementById('hid_referrer'); if (ref) ref.value = document.referrer || '';
+      var lp = document.getElementById('hid_landing'); if (lp) lp.value = window.location.href;
+    })();
+
+    /* ---------- Sticky nav background on scroll ---------- */
+    var nav = $('#nav');
+    var onScrollNav = function(){ nav.classList.toggle('solid', window.scrollY > 24); };
+    onScrollNav(); window.addEventListener('scroll', onScrollNav, {passive:true});
+
+    /* ---------- Mobile nav drawer ---------- */
+    var toggle = $('#navToggle'), drawer = $('#navDrawer');
+    function openDrawer(){
+      drawer.hidden = false;
+      // allow transition after unhide
+      requestAnimationFrame(function(){ drawer.classList.add('open'); });
+      toggle.setAttribute('aria-expanded','true');
+      toggle.setAttribute('aria-label','Close menu');
+      document.body.style.overflow = 'hidden';            // prevent background scroll
+      var first = drawer.querySelector('a'); if (first) first.focus();
+    }
+    function closeDrawer(returnFocus){
+      drawer.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      toggle.setAttribute('aria-label','Open menu');
+      document.body.style.overflow = '';
+      window.setTimeout(function(){ if(!drawer.classList.contains('open')) drawer.hidden = true; }, prefersReduced?0:300);
+      if (returnFocus) toggle.focus();
+    }
+    toggle.addEventListener('click', function(){
+      (toggle.getAttribute('aria-expanded')==='true') ? closeDrawer(true) : openDrawer();
+    });
+    $all('a', drawer).forEach(function(a){ a.addEventListener('click', function(){ closeDrawer(false); }); });
+    document.addEventListener('keydown', function(e){
+      if (e.key==='Escape' && toggle.getAttribute('aria-expanded')==='true') closeDrawer(true);
+    });
+    // simple focus trap while drawer open
+    drawer.addEventListener('keydown', function(e){
+      if (e.key!=='Tab' || !drawer.classList.contains('open')) return;
+      var f = $all('a, button', drawer).filter(function(el){return !el.hidden;});
+      if (!f.length) return;
+      var first=f[0], last=f[f.length-1];
+      if (e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+    });
+
+    /* ---------- CTA click tracking ---------- */
+    $all('[data-cta]').forEach(function(el){
+      el.addEventListener('click', function(){
+        var t = el.getAttribute('data-cta');
+        if (t==='primary') f3track('primary_cta_click', {location: el.textContent.trim().slice(0,40)});
+        else if (t==='secondary') f3track('secondary_cta_click', {});
+        else if (t==='nav') f3track('navigation_apply_click', {});
+      });
+    });
+
+    /* ---------- Coach bio expand/collapse ---------- */
+    $all('.coach__toggle').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        var open = btn.getAttribute('aria-expanded')==='true';
+        btn.setAttribute('aria-expanded', String(!open));
+        panel.classList.toggle('open', !open);
+        btn.querySelector('.t').textContent = open ? 'Read full bio' : 'Hide bio';
+        if (!open) f3track('coach_profile_interaction', {coach: btn.getAttribute('data-coach')});
+      });
+    });
+
+    /* ---------- Curriculum tabs (ARIA roving tabindex) ---------- */
+    (function(){
+      var tabs = $all('.weektab');
+      var panels = $all('.weekpanel');
+      function select(idx, focus){
+        tabs.forEach(function(t,i){
+          var sel = i===idx;
+          t.setAttribute('aria-selected', String(sel));
+          t.tabIndex = sel ? 0 : -1;
+          panels[i].hidden = !sel;
+        });
+        if (focus) tabs[idx].focus();
+        f3track('curriculum_interaction', {week: idx+1});
+      }
+      tabs.forEach(function(tab, i){
+        tab.addEventListener('click', function(){ select(i, false); });
+        tab.addEventListener('keydown', function(e){
+          var n;
+          if (e.key==='ArrowDown'||e.key==='ArrowRight') n=(i+1)%tabs.length;
+          else if (e.key==='ArrowUp'||e.key==='ArrowLeft') n=(i-1+tabs.length)%tabs.length;
+          else if (e.key==='Home') n=0;
+          else if (e.key==='End') n=tabs.length-1;
+          else return;
+          e.preventDefault(); select(n, true);
+        });
+      });
+    })();
+
+    /* ---------- FAQ accordion ---------- */
+    $all('.faq__btn').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        var open = btn.getAttribute('aria-expanded')==='true';
+        btn.setAttribute('aria-expanded', String(!open));
+        panel.classList.toggle('open', !open);
+        if (!open) f3track('faq_open', {q: btn.textContent.trim().slice(0,60)});
+      });
+    });
+
+    /* ---------- Scroll reveal ---------- */
+    if (!prefersReduced && 'IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+      $all('.reveal').forEach(function(el){ io.observe(el); });
+    } else {
+      $all('.reveal').forEach(function(el){ el.classList.add('in'); });
+    }
+
+    /* ---------- Back to top ---------- */
+    var toTop = $('#toTop');
+    var onScrollTop = function(){ toTop.classList.toggle('show', window.scrollY > 700); };
+    onScrollTop(); window.addEventListener('scroll', onScrollTop, {passive:true});
+    toTop.addEventListener('click', function(){ window.scrollTo({top:0, behavior: prefersReduced?'auto':'smooth'}); });
+
+    /* ---------- Scroll depth events ---------- */
+    (function(){
+      var marks = [25,50,75,90], fired = {};
+      var onScroll = function(){
+        var h = document.documentElement;
+        var pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+        marks.forEach(function(m){ if(!fired[m] && pct>=m){ fired[m]=true; f3track('scroll_'+m, {}); } });
+      };
+      window.addEventListener('scroll', onScroll, {passive:true});
+    })();
+
+    /* ---------- Hide mobile sticky CTA while the form is on screen ---------- */
+    var mcta = $('#mobileCta'), applySec = $('#apply');
+    if (mcta && applySec && 'IntersectionObserver' in window){
+      var fObs = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          mcta.classList.toggle('hide', en.isIntersecting);
+          if (en.isIntersecting && !mcta.dataset.formViewed){ mcta.dataset.formViewed='1'; f3track('form_view', {}); }
+        });
+      }, {threshold:0.12});
+      fObs.observe(applySec);
+    }
+
+    /* ============================================================
+       FORM: validation, progress tracking, submission
+       ============================================================ */
+    var form = $('#applyForm');
+    var statusEl = $('#formStatus');
+    var btn = $('#submitBtn');
+    var successEl = $('#formSuccess');
+    var started = false, submitting = false;
+
+    // --- Connect target. Set to a Make/Webflow/custom endpoint (expects JSON POST).
+    //     Leave EMPTY to run in demo mode (validates + shows the success state,
+    //     no network request). The <form action> attribute is the no-JS fallback.
+    var FORM_ENDPOINT = ""; // e.g. "https://hook.us1.make.com/xxxxxxxx"
+
+    var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function setError(input, msg){
+      input.setAttribute('aria-invalid','true');
+      input.setAttribute('aria-describedby', 'err-'+input.id);
+      var e = document.getElementById('err-'+input.id);
+      if (e){ e.textContent = msg; e.classList.add('show'); }
+    }
+    function clearError(input){
+      input.removeAttribute('aria-invalid');
+      var e = document.getElementById('err-'+input.id);
+      if (e){ e.textContent=''; e.classList.remove('show'); }
+    }
+    function validateField(input){
+      if (!input.id) return true;
+      var v = (input.value||'').trim();
+      if (input.hasAttribute('required') && !v){ setError(input, 'This field is required.'); return false; }
+      if (v && input.type==='email' && !EMAIL_RE.test(v)){ setError(input, 'Enter a valid email address.'); return false; }
+      if (v && input.id==='p_zip' && !/^[0-9]{5}(-[0-9]{4})?$/.test(v)){ setError(input, 'Enter a 5-digit ZIP code.'); return false; }
+      if (v && input.id==='p_phone' && v.replace(/[^0-9]/g,'').length < 10){ setError(input, 'Enter a valid phone number.'); return false; }
+      clearError(input); return true;
+    }
+
+    var fields = $all('input[required], select[required], textarea[required]', form)
+                  .filter(function(el){ return el.type!=='checkbox'; });
+
+    // form_start on first interaction
+    form.addEventListener('focusin', function(){
+      if (!started){ started = true; f3track('form_start', {}); }
+    });
+
+    // inline validation + field progress on blur (no health-answer contents sent)
+    fields.forEach(function(input){
+      input.addEventListener('blur', function(){
+        validateField(input);
+        if ((input.value||'').trim() && input.name !== 'q_medical'){
+          f3track('form_field_progress', {field: input.name});
+        }
+      });
+      input.addEventListener('input', function(){ if(input.getAttribute('aria-invalid')) validateField(input); });
+    });
+
+    function validateConfirms(){
+      var boxes = $all('#confirmGroup input[type="checkbox"]');
+      var allChecked = boxes.every(function(b){ return b.checked; });
+      var err = $('#err-confirmGroup');
+      boxes.forEach(function(b){ b.closest('.check').classList.toggle('invalid', !b.checked); });
+      if (!allChecked){ err.textContent='Please confirm all items to continue.'; err.classList.add('show'); }
+      else { err.textContent=''; err.classList.remove('show'); }
+      return allChecked;
+    }
+    $all('#confirmGroup input[type="checkbox"]').forEach(function(b){
+      b.addEventListener('change', function(){ if($('#err-confirmGroup').classList.contains('show')) validateConfirms(); });
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if (submitting) return;                 // prevent duplicate submissions
+
+      // Honeypot: silently succeed-looking no-op for bots
+      if ($('#hp_field').value){ return; }
+
+      f3track('form_submit', {});
+
+      var firstInvalid = null, ok = true;
+      fields.forEach(function(input){ if(!validateField(input)){ ok=false; if(!firstInvalid) firstInvalid=input; } });
+      var confirmsOk = validateConfirms();
+      if (!confirmsOk && !firstInvalid){ firstInvalid = $('#confirmGroup input'); }
+
+      if (!ok || !confirmsOk){
+        f3track('form_error', {});
+        statusEl.textContent = 'Please fix the highlighted fields and try again.';
+        statusEl.setAttribute('data-state','error');
+        if (firstInvalid){ firstInvalid.focus(); firstInvalid.scrollIntoView({block:'center', behavior: prefersReduced?'auto':'smooth'}); }
+        return;
+      }
+
+      // Stamp consent timestamp at moment of submit
+      $('#hid_consent_ts').value = new Date().toISOString();
+
+      // Build payload
+      var data = {};
+      new FormData(form).forEach(function(val, key){ data[key] = val; });
+      delete data.company_website; // drop honeypot
+
+      submitting = true;
+      btn.setAttribute('aria-busy','true');
+      $('.btn-label', btn).textContent = 'Submitting…';
+      statusEl.textContent=''; statusEl.removeAttribute('data-state');
+
+      function onSuccess(){
+        f3track('form_success', {});
+        form.style.display = 'none';
+        successEl.classList.add('show');
+        successEl.scrollIntoView({block:'center', behavior: prefersReduced?'auto':'smooth'});
+      }
+      function onFailure(){
+        submitting = false;
+        btn.setAttribute('aria-busy','false');
+        $('.btn-label', btn).textContent = 'Submit athlete application';
+        statusEl.textContent = 'Something went wrong submitting your application. Please try again, or email us if it persists.';
+        statusEl.setAttribute('data-state','error');
+        f3track('form_failure', {});
+      }
+
+      if (!FORM_ENDPOINT){
+        // DEMO MODE — no endpoint configured. Simulate success.
+        window.setTimeout(onSuccess, 650);
+        return;
+      }
+
+      fetch(FORM_ENDPOINT, {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      }).then(function(r){ if(!r.ok) throw new Error('bad status'); return r; })
+        .then(onSuccess)
+        .catch(onFailure);
+    });
+  });
+})();
+</script>
+</body>
+</html>
