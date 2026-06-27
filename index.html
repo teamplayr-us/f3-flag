@@ -10,8 +10,8 @@
      SEO / PRIMARY META
      Suggested URL path: /f3-flag
      ============================================================ -->
-<title>F3 Flag Development | Morris Claiborne, Kevin Dickens Jr. and Stephanie Raymond</title>
-<meta name="description" content="Apply for F3 Flag — an ongoing, application-based small-group DFW flag football development program featuring Morris Claiborne, Kevin Dickens Jr., and Stephanie Raymond." />
+<title>F3 Flag | Female Flag Football Development in Dallas–Fort Worth</title>
+<meta name="description" content="Apply for F3 Flag — an ongoing, application-based, small-group flag football development program for female athletes in Dallas–Fort Worth, featuring Morris Claiborne, Kevin Dickens Jr., and Stephanie Raymond." />
 <meta name="robots" content="index, follow" />
 
 <!-- CANONICAL — replace with the live deployed URL -->
@@ -30,7 +30,7 @@
      ============================================================ -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Built for Athletes Who Want More | F3 Flag Founding Cohort" />
-<meta property="og:description" content="An ongoing small-group athlete development program for committed DFW flag football players. Applications are now open." />
+<meta property="og:description" content="An ongoing small-group development program for committed female flag football players in DFW. Applications are now open." />
 <meta property="og:url" content="https://REPLACE-WITH-DOMAIN/f3-flag" />
 <meta property="og:site_name" content="F3 Flag" />
 <!-- OG IMAGE — 1200x630 image of the F3 coaching team overlaid with the text "BUILT FOR ATHLETES WHO WANT MORE." -->
@@ -41,7 +41,7 @@
 <!-- TWITTER CARD -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Built for Athletes Who Want More | F3 Flag Founding Cohort" />
-<meta name="twitter:description" content="An ongoing small-group athlete development program for committed DFW flag football players. Applications are now open." />
+<meta name="twitter:description" content="An ongoing small-group development program for committed female flag football players in DFW. Applications are now open." />
 <!-- TWITTER IMAGE — same 1200x630 asset as OG -->
 <meta name="twitter:image" content="https://REPLACE-WITH-DOMAIN/og/f3-flag-og.jpg" />
 
@@ -66,14 +66,14 @@
       "@id": "https://REPLACE-WITH-DOMAIN/#f3flag",
       "name": "F3 Flag",
       "slogan": "Focus. Fundamentals. Finish.",
-      "description": "An independent small-group flag football athlete-development program in the Dallas–Fort Worth area, powered by Flag Football Finder.",
+      "description": "An independent small-group flag football development program for female athletes in the Dallas–Fort Worth area, powered by Flag Football Finder.",
       "parentOrganization": { "@type": "Organization", "name": "Flag Football Finder" },
       "areaServed": { "@type": "AdministrativeArea", "name": "Dallas–Fort Worth, Texas" }
     },
     {
       "@type": "Course",
       "name": "F3 Flag Founding Development Cohort",
-      "description": "An application-based, ongoing, small-group flag football athlete development program for committed youth athletes in Dallas–Fort Worth.",
+      "description": "An application-based, ongoing, small-group flag football development program for committed female youth athletes in Dallas–Fort Worth.",
       "provider": { "@id": "https://REPLACE-WITH-DOMAIN/#f3flag" },
       "hasCourseInstance": {
         "@type": "CourseInstance",
@@ -291,22 +291,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
    HERO
    ============================================================ */
 .hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
-.hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,4vw,56px);align-items:center;padding-block:clamp(48px,7vw,92px)}
-.hero__copy{max-width:46ch}
-.hero h1{margin:14px 0 0;line-height:.82}
+.hero__grid{padding-block:clamp(64px,10vw,128px);text-align:center}
+.hero__copy{max-width:820px;margin-inline:auto}
+.hero h1{margin:14px 0 0;line-height:.92}
 .hero h1 .l2{color:var(--accent)}
 .hero__tag{margin-top:16px;font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;line-height:1;font-size:clamp(1rem,1.6vw,1.25rem);color:#fff}
 .hero__tag::before{content:"";display:inline-block;width:24px;height:4px;background:var(--accent);vertical-align:middle;margin-right:12px;transform:translateY(-3px)}
-.hero__sub{margin-top:26px;display:grid;gap:16px}
+.hero__sub{margin-top:26px;display:grid;gap:16px;max-width:62ch;margin-inline:auto}
 .hero__sub p{color:var(--muted-dark);font-size:clamp(1rem,1.3vw,1.12rem)}
-.hero__cred{margin-top:28px}
-.hero__cred-label{font-weight:700;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:13px}
-.hero__coaches{display:flex;flex-wrap:wrap;gap:14px 24px}
-.hero__coach{display:flex;flex-direction:column;gap:3px;padding-left:14px;border-left:2px solid var(--ink-3)}
-.hero__coach b{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.02em;font-size:1.05rem;line-height:1.05;color:#fff}
-.hero__coach span{font-size:.72rem;font-weight:600;letter-spacing:.03em;color:var(--muted-dark);text-transform:uppercase;line-height:1.35}
-.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px}
-.hero__urgency{margin-top:26px;display:flex;align-items:flex-start;gap:12px;font-size:.92rem;color:#fff;border-top:1px solid var(--ink-3);padding-top:20px}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;justify-content:center}
+.hero__urgency{margin-top:30px;display:inline-flex;align-items:center;gap:12px;font-size:.92rem;color:#fff;border-top:1px solid var(--ink-3);padding-top:20px;text-align:left}
 .hero__urgency .pulse{flex:0 0 auto;width:10px;height:10px;border-radius:50%;background:var(--accent);margin-top:5px;box-shadow:0 0 0 0 rgba(26,174,82,.6);animation:pulse 2.2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(26,174,82,.55)}70%{box-shadow:0 0 0 12px rgba(26,174,82,0)}100%{box-shadow:0 0 0 0 rgba(26,174,82,0)}}
 
@@ -324,7 +318,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .media[data-ratio="1-1"]{aspect-ratio:1/1}
 .media__tag{position:absolute;left:12px;bottom:12px;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);background:rgba(0,0,0,.55);padding:6px 10px;border-radius:6px;backdrop-filter:blur(3px)}
 .hero__media{position:relative}
-.hero__media .badge{position:absolute;top:18px;left:18px;background:var(--accent);color:#fff;font-family:var(--display);font-size:.95rem;letter-spacing:.06em;padding:8px 14px;border-radius:8px}
+.hero__media .badge{position:absolute;top:18px;left:18px;z-index:2;background:var(--accent);color:#fff;font-family:var(--display);font-size:.95rem;letter-spacing:.06em;padding:8px 14px;border-radius:8px}
+/* Branded hero placeholder (until real on-field photography is shot) */
+.hero__ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;padding:36px;background:repeating-linear-gradient(118deg,rgba(255,255,255,.022) 0 2px,transparent 2px 72px),radial-gradient(130% 80% at 50% 0%,#1f1f1f 0%,var(--ink-2) 55%,#0d0d0d 100%)}
+.hero__ph-promise{font-family:var(--display);text-transform:uppercase;line-height:1;font-size:clamp(1.7rem,3.4vw,2.5rem);color:#fff;display:grid;gap:11px}
+.hero__ph-promise .dot{color:var(--accent)}
+.hero__ph-rule{width:48px;height:4px;background:var(--accent);border-radius:2px}
+.hero__ph-loc{font-size:.7rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-dark)}
 
 /* ============================================================
    CREDENTIAL STRIP
@@ -651,7 +651,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
       <a href="#curriculum">Curriculum</a>
       <a href="#fit">Who It's For</a>
       <a href="#faq">FAQ</a>
-      <a class="btn" href="#apply" data-cta="nav">Apply Now</a>
+      <a class="btn" href="#apply" data-cta="nav">Apply now</a>
     </nav>
 
     <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
@@ -666,7 +666,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
     <a href="#curriculum">Curriculum</a>
     <a href="#fit">Who It's For</a>
     <a href="#faq">FAQ</a>
-    <a class="btn btn--block" href="#apply" data-cta="nav">Apply Now</a>
+    <a class="btn btn--block" href="#apply" data-cta="nav">Apply now</a>
   </div>
 </header>
 
@@ -679,39 +679,18 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
 <section class="hero" id="home" aria-labelledby="hero-h">
   <div class="wrap hero__grid">
     <div class="hero__copy">
-      <h1 class="display h-xl" id="hero-h">
-        Built for athletes<br>
-        <span class="l2">who want more.</span>
+      <p class="eyebrow">Built for athletes who want more.</p>
+      <h1 class="display h-md" id="hero-h">
+        We create <span class="l2">more confident, complete</span> female flag football players
       </h1>
       <div class="hero__sub">
-        <p>F3 Flag is small-group development for athletes who want focused coaching, meaningful feedback, and an environment built around improvement—not attention.</p>
-        <p>An ongoing monthly program with instruction from <strong>Morris Claiborne</strong>, <strong>Kevin Dickens Jr.</strong>, and <strong>Stephanie Raymond</strong> — experience spanning professional football, elite competitive flag football, championship play, professional women's sports, quarterback development, receiver development, defensive back technique, and high-performance environments.</p>
-      </div>
-      <div class="hero__cred">
-        <p class="hero__cred-label">Coached by</p>
-        <ul class="hero__coaches">
-          <li class="hero__coach"><b>Morris Claiborne</b><span>NFL First-Round Pick · Jim Thorpe Award</span></li>
-          <li class="hero__coach"><b>Kevin Dickens Jr.</b><span>5× Flag All-American · National Champion</span></li>
-          <li class="hero__coach"><b>Stephanie Raymond</b><span>WNBA Draft Pick · Championship QB</span></li>
-        </ul>
+        <p>Get focused development that your team practice doesn't allow. Small-group training, world-class facilities, and coaches with experience at the NFL, NCAA Division I, professional, and championship levels.</p>
       </div>
       <div class="hero__cta">
-        <a class="btn btn--lg" href="#apply" data-cta="primary">Apply for the Founding Cohort</a>
+        <a class="btn btn--lg" href="#apply" data-cta="primary">Apply in 2 minutes</a>
         <a class="btn btn--ghost btn--lg" href="#program" data-cta="secondary">See how the program works</a>
       </div>
       <p class="hero__urgency"><span class="pulse" aria-hidden="true"></span><span>Applications are now open. Training begins August 1, 2026. Space is limited to eight athletes per group.</span></p>
-    </div>
-
-    <div class="hero__media">
-      <span class="badge">F3 · DFW</span>
-      <!-- HERO IMAGE — Production: the complete F3 coaching team working with athletes on the field.
-           Acceptable alternative: a strong action shot of one coach instructing an athlete.
-           Swap src for: /images/hero-coaching-team.jpg  (eager loaded, not lazy) -->
-      <div class="media" data-ratio="4-5">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Crect width='4' height='5' fill='%23141414'/%3E%3Crect x='.24' y='.24' width='.7' height='.08' fill='%231aae52'/%3E%3C/svg%3E"
-             width="800" height="1000" alt="The F3 Flag coaching team working with youth athletes during a small-group session" />
-        <span class="media__tag">Coaching team · athletes</span>
-      </div>
     </div>
   </div>
 </section>
@@ -743,7 +722,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
     <h2 class="display h-lg reveal" id="pos-h">You do not have to be the best player in the group.</h2>
     <p class="display h-md pos__big accent reveal">You do have to be willing to work.</p>
     <div class="reveal">
-      <p class="lead">F3 is not reserved for athletes with the biggest names, highest rankings, longest highlight reels, or most social media attention. It is built for athletes who want to improve their movement, technique, football understanding, confidence, preparation, and ability to execute under pressure.</p>
+      <p class="lead">F3 is built for female flag football players—and it's not reserved for those with the biggest names, highest rankings, longest highlight reels, or most social media attention. It's for athletes who want to improve their movement, technique, football understanding, confidence, preparation, and ability to execute under pressure.</p>
       <p class="lead" style="margin-top:14px">We are selecting athletes based on commitment, coachability, consistency, availability, and fit—not reputation.</p>
     </div>
 
@@ -787,7 +766,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
 
     <ul class="feature-grid reveal" aria-label="Program features">
       <li class="fcard"><span class="tick"></span><span>Structured, progressive weekly development</span></li>
-      <li class="fcard"><span class="tick"></span><span>One 75-minute session each week</span></li>
+      <li class="fcard"><span class="tick"></span><span>One 60-minute session each week</span></li>
       <li class="fcard"><span class="tick"></span><span>Maximum eight athletes per group</span></li>
       <li class="fcard"><span class="tick"></span><span>Initial athlete assessment</span></li>
       <li class="fcard"><span class="tick"></span><span>Individual development priorities</span></li>
@@ -836,7 +815,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
     </dl>
 
     <div class="reveal" style="margin-top:36px">
-      <a class="btn btn--lg" href="#apply" data-cta="primary">Start your application</a>
+      <a class="btn btn--lg" href="#apply" data-cta="primary">Apply now</a>
     </div>
   </div>
 </section>
@@ -1068,7 +1047,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
     </div>
     <div class="fit">
       <div class="fitcol fitcol--yes reveal">
-        <h3>This is for athletes who:</h3>
+        <h3>This is for female athletes who:</h3>
         <ul>
           <li><span class="mark mark--yes" aria-hidden="true">✓</span>Want more focused development than team practice provides</li>
           <li><span class="mark mark--yes" aria-hidden="true">✓</span>Care about becoming technically better</li>
@@ -1136,14 +1115,14 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
         <div class="amt">$299</div>
         <div class="per">Per month</div>
         <p class="note">Ongoing monthly membership · billed monthly</p>
-        <a class="btn btn--block" href="#apply" data-cta="primary" style="margin-top:24px">Apply for a founding seat</a>
+        <a class="btn btn--block" href="#apply" data-cta="primary" style="margin-top:24px">Apply now</a>
         <p class="note" style="margin-top:14px">No payment is required to submit an application. Accepted athletes will receive a private enrollment link to secure their place.</p>
       </div>
       <div class="reveal">
         <ul class="pricelist">
           <li><span class="tick"></span>Structured eight-week foundation, then ongoing</li>
           <li><span class="tick"></span>Four sessions each month</li>
-          <li><span class="tick"></span>One 75-minute session each week</li>
+          <li><span class="tick"></span>One 60-minute session each week</li>
           <li><span class="tick"></span>Initial assessment included</li>
           <li><span class="tick"></span>Final evaluation included</li>
           <li><span class="tick"></span>Individual development priorities</li>
@@ -1212,7 +1191,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
       <div class="faq__item">
         <h3 style="margin:0"><button class="faq__btn" aria-expanded="false" aria-controls="faq-2" id="faqb-2">What ages can apply?<span class="ico" aria-hidden="true"></span></button></h3>
         <div class="faq__panel" id="faq-2" role="region" aria-labelledby="faqb-2"><div>
-          <p>The initial program is expected to serve athletes approximately 10–17 years old. Final cohorts will be grouped according to age, physical maturity, experience, position, developmental priorities, and competitive fit.</p>
+          <p>The initial program is expected to serve female athletes approximately 10–17 years old. Final cohorts will be grouped according to age, physical maturity, experience, position, developmental priorities, and competitive fit.</p>
         </div></div>
       </div>
 
@@ -1316,7 +1295,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
       <span class="l2">Your athlete needs the right environment.</span>
     </h2>
     <p class="lead reveal">Learn within a small-group development program supported by coaches with experience in professional football, elite flag competition, professional women's sports, championship play, quarterback development, receiver development, defensive back technique, leadership, and high-performance environments. The opportunity is not reserved for the athlete with the biggest name. It is for the athlete ready to work.</p>
-    <div class="reveal"><a class="btn btn--lg" href="#apply" data-cta="primary">Apply for the F3 founding cohort</a></div>
+    <div class="reveal"><a class="btn btn--lg" href="#apply" data-cta="primary">Apply now</a></div>
     <p class="fine reveal">Training begins August 1. Applications are reviewed for commitment, coachability, position fit, availability, developmental need, and cohort composition.</p>
     <!-- Program philosophy (not an attributed quote): "Talent may get attention. Preparation is what allows an athlete to keep progressing." -->
     <p class="fine reveal" style="margin-top:18px;font-style:italic">Program philosophy: Talent may get attention. Preparation is what allows an athlete to keep progressing.</p>
@@ -1644,7 +1623,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
      STICKY MOBILE APPLY BAR
      ============================================================ -->
 <div class="mobile-cta" id="mobileCta">
-  <a class="btn" href="#apply" data-cta="primary">Apply for the founding cohort</a>
+  <a class="btn" href="#apply" data-cta="primary">Apply now</a>
 </div>
 
 <!-- BACK TO TOP -->
