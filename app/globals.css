@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* These styles apply only to the Next.js app (blog + studio). The marketing
+   landing page at "/" is a standalone static file and is never affected. */
