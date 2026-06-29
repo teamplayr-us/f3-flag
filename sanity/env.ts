@@ -1,5 +1,5 @@
 export const apiVersion =
-  process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-10-01';
+  process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-03-01';
 
 // Fall back to safe placeholders instead of throwing when the Sanity env vars
 // aren't set. This keeps the whole site (including the static marketing page at

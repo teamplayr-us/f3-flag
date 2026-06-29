@@ -39,7 +39,7 @@ hand-built site.
    ```
    NEXT_PUBLIC_SANITY_PROJECT_ID="your_project_id"
    NEXT_PUBLIC_SANITY_DATASET="production"
-   NEXT_PUBLIC_SANITY_API_VERSION="2024-10-01"
+   NEXT_PUBLIC_SANITY_API_VERSION="2025-03-01"
    ```
    Find these at <https://www.sanity.io/manage>.
 3. Run the dev server:
