@@ -292,15 +292,15 @@ section[id],[id="apply"]{scroll-margin-top:calc(var(--nav-h) + 18px)}
    HERO
    ============================================================ */
 .hero{background:var(--ink);color:#fff;position:relative;overflow:hidden}
-.hero__grid{padding-block:clamp(64px,10vw,128px);text-align:center}
-.hero__copy{max-width:820px;margin-inline:auto}
+.hero__grid{padding-block:clamp(64px,10vw,128px);display:grid;grid-template-columns:1.02fr .82fr;gap:clamp(32px,5vw,72px);align-items:center;text-align:left}
+.hero__copy{max-width:640px}
 .hero h1{margin:14px 0 0;line-height:.92}
 .hero h1 .l2{color:var(--accent)}
 .hero__tag{margin-top:16px;font-family:var(--display);text-transform:uppercase;letter-spacing:.04em;line-height:1;font-size:clamp(1rem,1.6vw,1.25rem);color:#fff}
 .hero__tag::before{content:"";display:inline-block;width:24px;height:4px;background:var(--accent);vertical-align:middle;margin-right:12px;transform:translateY(-3px)}
-.hero__sub{margin-top:26px;display:grid;gap:16px;max-width:62ch;margin-inline:auto}
+.hero__sub{margin-top:26px;display:grid;gap:16px;max-width:62ch}
 .hero__sub p{color:var(--muted-dark);font-size:clamp(1rem,1.3vw,1.12rem)}
-.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;justify-content:center}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px;justify-content:flex-start}
 .hero__urgency{margin-top:30px;display:inline-flex;align-items:center;gap:12px;font-size:.92rem;color:#fff;border-top:1px solid var(--ink-3);padding-top:20px;text-align:left}
 .hero__urgency .pulse{flex:0 0 auto;width:10px;height:10px;border-radius:50%;background:var(--accent);margin-top:5px;box-shadow:0 0 0 0 rgba(26,174,82,.6);animation:pulse 2.2s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(26,174,82,.55)}70%{box-shadow:0 0 0 12px rgba(26,174,82,0)}100%{box-shadow:0 0 0 0 rgba(26,174,82,0)}}
@@ -319,6 +319,7 @@ section[id],[id="apply"]{scroll-margin-top:calc(var(--nav-h) + 18px)}
 .media[data-ratio="1-1"]{aspect-ratio:1/1}
 .media__tag{position:absolute;left:12px;bottom:12px;font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);background:rgba(0,0,0,.55);padding:6px 10px;border-radius:6px;backdrop-filter:blur(3px)}
 .hero__media{position:relative}
+.hero__media img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%;border-radius:var(--r);box-shadow:0 40px 90px -40px rgba(0,0,0,.85)}
 .hero__media .badge{position:absolute;top:18px;left:18px;z-index:2;background:var(--accent);color:#fff;font-family:var(--display);font-size:.95rem;letter-spacing:.06em;padding:8px 14px;border-radius:8px}
 /* Branded hero placeholder (until real on-field photography is shot) */
 .hero__ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;text-align:center;padding:36px;background:repeating-linear-gradient(118deg,rgba(255,255,255,.022) 0 2px,transparent 2px 72px),radial-gradient(130% 80% at 50% 0%,#1f1f1f 0%,var(--ink-2) 55%,#0d0d0d 100%)}
@@ -372,6 +373,7 @@ section[id],[id="apply"]{scroll-margin-top:calc(var(--nav-h) + 18px)}
 .coach__body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
 .coach__name{font-family:var(--display);font-size:1.7rem;text-transform:uppercase;letter-spacing:.01em;line-height:1}
 .coach__cred{color:var(--accent);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin:10px 0 14px;line-height:1.5}
+.coach__role{display:inline-block;background:var(--ink);color:#fff;font-weight:700;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;padding:6px 11px;border-radius:999px;margin:12px 0 2px}
 .coach__bio p{font-size:.95rem;color:var(--muted);margin-bottom:12px}
 .coach__bio{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s var(--ease)}
 .coach__bio>div{overflow:hidden}
@@ -589,7 +591,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
   .nav__links{display:none}
   .nav__toggle{display:flex}
   .hero__grid{grid-template-columns:1fr}
-  .hero__media{order:-1}
+  .hero__media{display:none}
   .curric{grid-template-columns:1fr}
   .weektabs{position:static;flex-direction:row;overflow-x:auto;gap:8px;padding-bottom:6px}
   .weektab{flex:0 0 auto;min-height:48px}
@@ -688,6 +690,10 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
         <a class="btn btn--ghost btn--lg" href="#program" data-cta="secondary">See how the program works</a>
       </div>
       <p class="hero__urgency"><span class="pulse" aria-hidden="true"></span><span>Applications are now open. Training begins August 2026. Space is limited to sixteen athletes in the founding class.</span></p>
+    </div>
+    <div class="hero__media">
+      <!-- HERO PHOTO — F3 athlete making a catch under the lights -->
+      <img src="/hero-athlete.jpg" width="704" height="1524" loading="eager" fetchpriority="high" decoding="async" alt="F3 Flag athlete in an F3 jersey leaping to make a catch under the stadium lights" />
     </div>
   </div>
 </section>
@@ -814,14 +820,15 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
 
       <!-- ===== COACH: Morris Claiborne ===== -->
       <article class="coach reveal">
-        <!-- IMAGE — Morris Claiborne portrait. Swap src for: /images/morris-claiborne-portrait.jpg -->
+        <!-- IMAGE — Morris Claiborne portrait -->
         <div class="media" data-ratio="4-5">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Crect width='4' height='5' fill='%23141414'/%3E%3Crect x='.24' y='.24' width='.7' height='.08' fill='%231aae52'/%3E%3C/svg%3E"
-               width="640" height="800" loading="lazy" alt="Portrait of coach Morris Claiborne" />
+          <img src="/morris-claiborne.jpg" style="object-position:50% 22%"
+               width="760" height="1108" loading="lazy" alt="Coach Morris Claiborne in an F3 shirt coaching on the field" />
           <span class="media__tag">Morris Claiborne</span>
         </div>
         <div class="coach__body">
           <h3 class="coach__name">Morris Claiborne</h3>
+          <p class="coach__role">Director of Coaches</p>
           <p class="coach__cred">NFL First-Round Pick · Jim Thorpe Award Winner · LSU All-American</p>
           <div class="coach__bio coach__bio--lead">
             <div><p>Morris Claiborne developed from a high school athlete in Shreveport, Louisiana, into one of the most accomplished defensive backs in college football.</p></div>
@@ -839,9 +846,8 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
           <div class="coach__emph">
             <h4>Areas of emphasis</h4>
             <ul>
-              <li>Defensive back technique</li><li>Coverage fundamentals</li><li>Leverage &amp; body positioning</li>
-              <li>Ball skills</li><li>Route recognition</li><li>Flag-pulling angles</li>
-              <li>Competitive preparation</li><li>Defensive decision-making</li><li>Professional training habits</li>
+              <li>Defensive back technique</li><li>Coverage fundamentals</li>
+              <li>Ball skills</li><li>Flag-pulling angles</li>
             </ul>
           </div>
         </div>
@@ -875,9 +881,8 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
           <div class="coach__emph">
             <h4>Areas of emphasis</h4>
             <ul>
-              <li>Flag-specific offensive technique</li><li>Wide receiver development</li><li>Route running</li>
-              <li>Releases &amp; separation</li><li>Speed &amp; movement efficiency</li><li>Game intelligence</li>
-              <li>Competitive mindset</li><li>Athlete evaluation</li><li>Development pathways</li><li>Modern flag concepts</li>
+              <li>Wide receiver development</li><li>Route running</li>
+              <li>Releases &amp; separation</li><li>Speed &amp; movement efficiency</li>
             </ul>
           </div>
         </div>
@@ -911,9 +916,8 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
           <div class="coach__emph">
             <h4>Areas of emphasis</h4>
             <ul>
-              <li>Quarterback development</li><li>Offensive decision-making</li><li>Field vision</li>
-              <li>Anticipation</li><li>Footwork &amp; body control</li><li>Ball handling</li>
-              <li>Communication</li><li>Leadership</li><li>Multi-sport development</li><li>Confidence under pressure</li>
+              <li>Quarterback development</li><li>Offensive decision-making</li>
+              <li>Field vision</li><li>Leadership</li>
             </ul>
           </div>
         </div>
