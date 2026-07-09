@@ -1318,7 +1318,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
       </div>
 
       <!-- Set action as a fallback; JS intercepts submit. novalidate so custom validation runs. -->
-      <form id="applyForm" action="REPLACE_WITH_FORM_ENDPOINT" method="post" novalidate>
+      <form id="applyForm" action="https://hook.us1.make.com/lcu1gtc6trexpkv0x6zfeg4jwwqjlde0" method="post" novalidate>
 
         <!-- ===== Hidden tracking / attribution fields ===== -->
         <input type="hidden" name="utm_source" id="utm_source" />
@@ -1759,7 +1759,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
     // --- Connect target. Set to a Make/Webflow/custom endpoint (expects JSON POST).
     //     Leave EMPTY to run in demo mode (validates + shows the success state,
     //     no network request). The <form action> attribute is the no-JS fallback.
-    var FORM_ENDPOINT = ""; // e.g. "https://hook.us1.make.com/xxxxxxxx"
+    var FORM_ENDPOINT = "https://hook.us1.make.com/lcu1gtc6trexpkv0x6zfeg4jwwqjlde0";
 
     var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
