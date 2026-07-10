@@ -1872,13 +1872,35 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
         return;
       }
 
+      // Send as x-www-form-urlencoded so the browser makes a "simple" cross-
+      // origin request (no CORS preflight), which is far more reliable against
+      // webhook endpoints like Make. Field names are unchanged. An AbortController
+      // timeout guarantees the user always gets feedback (never a silent hang)
+      // and the Submit button never gets stuck.
+      var ctrl = ('AbortController' in window) ? new AbortController() : null;
+      var to = window.setTimeout(function(){ if (ctrl) ctrl.abort(); }, 15000);
       fetch(FORM_ENDPOINT, {
         method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify(data)
+        headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},
+        body: new URLSearchParams(data).toString(),
+        signal: ctrl ? ctrl.signal : undefined
       }).then(function(r){ if(!r.ok) throw new Error('bad status'); return r; })
-        .then(onSuccess)
-        .catch(onFailure);
+        .then(function(){ window.clearTimeout(to); onSuccess(); })
+        .catch(function(){ window.clearTimeout(to); onFailure(); });
+    });
+
+    // If the page is restored from the back/forward cache (bfcache) — e.g. the
+    // visitor filled the form, navigated away, and came back — clear any stuck
+    // in-flight state so the Submit button works immediately.
+    window.addEventListener('pageshow', function(e){
+      if (e.persisted){
+        submitting = false;
+        if (btn){
+          btn.setAttribute('aria-busy','false');
+          var lbl = $('.btn-label', btn);
+          if (lbl) lbl.textContent = 'Submit athlete application';
+        }
+      }
     });
   });
 })();
