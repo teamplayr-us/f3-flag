@@ -1342,10 +1342,15 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
           <legend class="fs-head">Parent or guardian information</legend>
           <p class="fs-sub">We'll use this to contact your family about the application.</p>
           <div class="grid2">
-            <div class="field full">
-              <label for="p_name">Parent / guardian full name <span class="req" aria-hidden="true">*</span></label>
-              <input id="p_name" name="parent_name" type="text" required autocomplete="name" />
-              <p class="err" id="err-p_name"></p>
+            <div class="field">
+              <label for="p_first">Parent / guardian first name <span class="req" aria-hidden="true">*</span></label>
+              <input id="p_first" name="parent_first_name" type="text" required autocomplete="given-name" />
+              <p class="err" id="err-p_first"></p>
+            </div>
+            <div class="field">
+              <label for="p_last">Parent / guardian last name <span class="req" aria-hidden="true">*</span></label>
+              <input id="p_last" name="parent_last_name" type="text" required autocomplete="family-name" />
+              <p class="err" id="err-p_last"></p>
             </div>
             <div class="field">
               <label for="p_email">Email address <span class="req" aria-hidden="true">*</span></label>
@@ -1390,10 +1395,15 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
         <fieldset>
           <legend class="fs-head">Athlete information</legend>
           <div class="grid2">
-            <div class="field full">
-              <label for="a_name">Athlete full name <span class="req" aria-hidden="true">*</span></label>
-              <input id="a_name" name="athlete_name" type="text" required />
-              <p class="err" id="err-a_name"></p>
+            <div class="field">
+              <label for="a_first">Athlete first name <span class="req" aria-hidden="true">*</span></label>
+              <input id="a_first" name="athlete_first_name" type="text" required autocomplete="off" />
+              <p class="err" id="err-a_first"></p>
+            </div>
+            <div class="field">
+              <label for="a_last">Athlete last name <span class="req" aria-hidden="true">*</span></label>
+              <input id="a_last" name="athlete_last_name" type="text" required autocomplete="off" />
+              <p class="err" id="err-a_last"></p>
             </div>
             <div class="field">
               <label for="a_dob">Date of birth <span class="req" aria-hidden="true">*</span></label>
