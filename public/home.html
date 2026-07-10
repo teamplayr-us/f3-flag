@@ -1334,8 +1334,12 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
         <input type="hidden" name="referrer" id="hid_referrer" />
         <input type="hidden" name="landing_page_url" id="hid_landing" />
         <input type="hidden" name="consent_timestamp" id="hid_consent_ts" />
-        <!-- Honeypot (spam trap) — must stay empty; hidden from users and AT -->
-        <input type="text" name="company_website" id="hp_field" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
+        <!-- Honeypot (spam trap) — must stay empty; hidden from users and AT.
+             Name is deliberately non-semantic ("hp_field") so browser/password-
+             manager autofill won't populate it (a name like "company_website"
+             gets auto-filled from the saved company/organization and would
+             falsely trip the trap, silently blocking real submissions). -->
+        <input type="text" name="hp_field" id="hp_field" tabindex="-1" autocomplete="off" aria-hidden="true" value="" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" />
 
         <!-- ===== Parent / Guardian ===== -->
         <fieldset>
@@ -1854,7 +1858,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
       // Build payload
       var data = {};
       new FormData(form).forEach(function(val, key){ data[key] = val; });
-      delete data.company_website; // drop honeypot
+      delete data.hp_field; // drop honeypot
 
       submitting = true;
       btn.setAttribute('aria-busy','true');
