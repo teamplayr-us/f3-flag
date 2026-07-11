@@ -11,6 +11,15 @@ export const metadata: Metadata = {
   title: 'Blog',
   description:
     'Training, mindset, and recruiting insights from F3 Flag — female flag football development in Dallas–Fort Worth.',
+  alternates: { canonical: '/blog' },
+  openGraph: {
+    title: 'The F3 Flag Blog',
+    description:
+      'Training, mindset, and recruiting insights from F3 Flag — female flag football development in Dallas–Fort Worth.',
+    url: '/blog',
+    type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
 };
 
 // Revalidate the index periodically (ISR).

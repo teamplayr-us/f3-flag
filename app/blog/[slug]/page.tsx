@@ -39,14 +39,16 @@ export async function generateMetadata({
 
   const ogImage = post.mainImage
     ? urlForImage(post.mainImage).width(1200).height(630).url()
-    : undefined;
+    : '/og-image.png';
 
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      url: `/blog/${slug}`,
       type: 'article',
       publishedTime: post.publishedAt,
       images: ogImage ? [{ url: ogImage, width: 1200, height: 630 }] : undefined,
