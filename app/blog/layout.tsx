@@ -2,7 +2,7 @@ import { Anton, Archivo } from 'next/font/google';
 import Link from 'next/link';
 import Script from 'next/script';
 
-// Matches the GA4 property used on the marketing page so the whole public
+// Matches the GA4 property used on the marketing pages so the whole public
 // site reports into one stream. Studio (/studio) is intentionally excluded.
 const GA_MEASUREMENT_ID = 'G-JQM4STMVR4';
 
@@ -41,19 +41,21 @@ export default function BlogLayout({
         `}
       </Script>
 
-      <header className="border-b border-black/10 bg-ink text-white">
-        <div className="mx-auto flex max-w-3xl items-center justify-between px-5 py-4">
-          {/* The marketing home page is the verbatim static file at "/" */}
-          <a href="/" className="font-display text-2xl tracking-wide">
-            F3 FLAG
+      {/* Global nav — matches the marketing pages (logo + same links). */}
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/95 backdrop-blur">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-4 px-5 py-3">
+          <a href="/" aria-label="F3 Flag — Home" className="shrink-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/f3-logo.png" alt="F3 Flag" width={107} height={60} className="block h-[30px] w-auto" />
           </a>
-          <nav className="flex items-center gap-6 text-sm font-semibold">
-            <Link href="/blog" className="hover:text-accent">
-              Blog
-            </Link>
+          <nav className="ml-auto flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.95rem] font-semibold text-white">
+            <a href="/program" className="hover:text-accent">The Program</a>
+            <a href="/coaches" className="hover:text-accent">Coaching Team</a>
+            <a href="/faq" className="hover:text-accent">FAQ</a>
+            <Link href="/blog" className="hover:text-accent">Blog</Link>
             <a
               href="/#apply"
-              className="rounded-full bg-accent px-4 py-2 text-ink transition-colors hover:bg-accent-deep hover:text-white"
+              className="rounded-full bg-accent px-5 py-2 text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-ink transition-colors hover:bg-accent-deep hover:text-white"
             >
               Apply now
             </a>
@@ -63,15 +65,29 @@ export default function BlogLayout({
 
       <main className="flex-1">{children}</main>
 
-      <footer className="border-t border-black/10 bg-ink text-white/70">
-        <div className="mx-auto flex max-w-3xl flex-col gap-2 px-5 py-8 text-sm sm:flex-row sm:items-center sm:justify-between">
-          <span className="font-display text-lg tracking-wide text-white">
-            F3 FLAG
-          </span>
-          <span>
-            © {new Date().getFullYear()} F3 Flag. Female flag football
-            development · Dallas–Fort Worth.
-          </span>
+      {/* Global footer — matches the marketing pages. */}
+      <footer className="bg-ink text-white/70">
+        <div className="mx-auto max-w-6xl px-5 py-12">
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
+            <div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/f3-logo.png" alt="F3 Flag" width={92} height={52} className="h-[46px] w-auto" />
+              <p className="mt-3 text-sm">Powered by Flag Football Finder.</p>
+            </div>
+            <nav className="flex flex-wrap gap-x-7 gap-y-2 text-sm font-semibold text-white/80" aria-label="Footer">
+              <a href="/#apply" className="hover:text-accent">Apply</a>
+              <a href="/program" className="hover:text-accent">The Program</a>
+              <a href="/coaches" className="hover:text-accent">Coaching Team</a>
+              <a href="/faq" className="hover:text-accent">FAQ</a>
+              <Link href="/blog" className="hover:text-accent">Blog</Link>
+              <a href="/flag-football-training-dallas-fort-worth" className="hover:text-accent">Dallas–Fort Worth</a>
+            </nav>
+          </div>
+          <p className="mt-10 border-t border-white/10 pt-6 text-xs leading-relaxed text-white/50">
+            © {new Date().getFullYear()} F3 Flag. An independent athlete-development program powered by Flag
+            Football Finder. Participation does not guarantee team selection, playing time, recruiting
+            opportunities, scholarships, rankings, or professional outcomes.
+          </p>
         </div>
       </footer>
     </div>
