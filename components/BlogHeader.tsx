@@ -1,17 +1,23 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-const NAV_LINKS = [
-  { href: '/program', label: 'The Program' },
-  { href: '/coaches', label: 'Coaching Team' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/blog', label: 'Blog', internal: true },
-];
+const LOCATIONS = [{ href: '/flag-football-training-dallas-fort-worth', label: 'Dallas–Fort Worth' }];
 
 export default function BlogHeader() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false); // mobile menu
+  const [locOpen, setLocOpen] = useState(false); // desktop locations dropdown
+  const dropRef = useRef<HTMLDivElement>(null);
+
+  // Close the desktop Locations dropdown on outside click
+  useEffect(() => {
+    function onClick(e: MouseEvent) {
+      if (dropRef.current && !dropRef.current.contains(e.target as Node)) setLocOpen(false);
+    }
+    document.addEventListener('click', onClick);
+    return () => document.removeEventListener('click', onClick);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/95 backdrop-blur">
@@ -23,17 +29,37 @@ export default function BlogHeader() {
 
         {/* Desktop links */}
         <nav className="ml-auto hidden items-center gap-x-5 text-[0.95rem] font-semibold text-white min-[901px]:flex">
-          {NAV_LINKS.map((l) =>
-            l.internal ? (
-              <Link key={l.href} href={l.href} className="hover:text-accent">
-                {l.label}
-              </Link>
-            ) : (
-              <a key={l.href} href={l.href} className="hover:text-accent">
-                {l.label}
-              </a>
-            ),
-          )}
+          <a href="/program" className="hover:text-accent">The Program</a>
+          <a href="/coaches" className="hover:text-accent">Coaching Team</a>
+          <div className="relative" ref={dropRef}>
+            <button
+              type="button"
+              onClick={() => setLocOpen((v) => !v)}
+              aria-expanded={locOpen}
+              className="flex items-center gap-1.5 font-semibold hover:text-accent"
+            >
+              Locations
+              <span className={`text-[0.7em] transition-transform ${locOpen ? 'rotate-180' : ''}`}>▾</span>
+            </button>
+            {locOpen && (
+              <div className="absolute left-0 top-full z-[60] mt-3 min-w-[230px] rounded-xl border border-white/10 bg-ink-2 p-2 shadow-2xl">
+                {LOCATIONS.map((loc) => (
+                  <a
+                    key={loc.href}
+                    href={loc.href}
+                    className="block rounded-lg px-3 py-2.5 text-[0.94rem] font-semibold text-white hover:bg-white/10 hover:text-accent"
+                  >
+                    {loc.label}
+                  </a>
+                ))}
+                <span className="block px-3 pb-1 pt-2 text-[0.66rem] font-bold uppercase tracking-[0.14em] text-white/50">
+                  More coming soon
+                </span>
+              </div>
+            )}
+          </div>
+          <a href="/faq" className="hover:text-accent">FAQ</a>
+          <Link href="/blog" className="hover:text-accent">Blog</Link>
           <a
             href="/#apply"
             className="rounded-full bg-accent px-5 py-2 text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-white transition-colors hover:bg-accent-deep"
@@ -63,27 +89,30 @@ export default function BlogHeader() {
       {/* Mobile dropdown */}
       {open && (
         <nav className="border-t border-white/10 bg-ink text-white min-[901px]:hidden" aria-label="Primary">
-          {NAV_LINKS.map((l) =>
-            l.internal ? (
-              <Link
-                key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="block border-b border-white/10 px-5 py-4 text-lg font-semibold"
-              >
-                {l.label}
-              </Link>
-            ) : (
+          <a href="/program" onClick={() => setOpen(false)} className="block border-b border-white/10 px-5 py-4 text-lg font-semibold">The Program</a>
+          <a href="/coaches" onClick={() => setOpen(false)} className="block border-b border-white/10 px-5 py-4 text-lg font-semibold">Coaching Team</a>
+          <button
+            type="button"
+            onClick={() => setLocOpen((v) => !v)}
+            aria-expanded={locOpen}
+            className="flex w-full items-center justify-between border-b border-white/10 px-5 py-4 text-lg font-semibold"
+          >
+            Locations
+            <span className={`text-sm transition-transform ${locOpen ? 'rotate-180' : ''}`}>▾</span>
+          </button>
+          {locOpen &&
+            LOCATIONS.map((loc) => (
               <a
-                key={l.href}
-                href={l.href}
+                key={loc.href}
+                href={loc.href}
                 onClick={() => setOpen(false)}
-                className="block border-b border-white/10 px-5 py-4 text-lg font-semibold"
+                className="block border-b border-white/10 py-3 pl-9 pr-5 text-base font-semibold text-white/90"
               >
-                {l.label}
+                {loc.label}
               </a>
-            ),
-          )}
+            ))}
+          <a href="/faq" onClick={() => setOpen(false)} className="block border-b border-white/10 px-5 py-4 text-lg font-semibold">FAQ</a>
+          <Link href="/blog" onClick={() => setOpen(false)} className="block border-b border-white/10 px-5 py-4 text-lg font-semibold">Blog</Link>
           <a
             href="/#apply"
             onClick={() => setOpen(false)}
