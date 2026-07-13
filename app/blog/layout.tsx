@@ -2,6 +2,8 @@ import { Anton, Archivo } from 'next/font/google';
 import Link from 'next/link';
 import Script from 'next/script';
 
+import BlogHeader from '@/components/BlogHeader';
+
 // Matches the GA4 property used on the marketing pages so the whole public
 // site reports into one stream. Studio (/studio) is intentionally excluded.
 const GA_MEASUREMENT_ID = 'G-JQM4STMVR4';
@@ -41,27 +43,8 @@ export default function BlogLayout({
         `}
       </Script>
 
-      {/* Global nav — matches the marketing pages (logo + same links). */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/95 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-4 px-5 py-3">
-          <a href="/" aria-label="F3 Flag — Home" className="shrink-0">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/f3-logo.png" alt="F3 Flag" width={107} height={60} className="block h-[30px] w-auto" />
-          </a>
-          <nav className="ml-auto flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.95rem] font-semibold text-white">
-            <a href="/program" className="hover:text-accent">The Program</a>
-            <a href="/coaches" className="hover:text-accent">Coaching Team</a>
-            <a href="/faq" className="hover:text-accent">FAQ</a>
-            <Link href="/blog" className="hover:text-accent">Blog</Link>
-            <a
-              href="/#apply"
-              className="rounded-full bg-accent px-5 py-2 text-[0.82rem] font-extrabold uppercase tracking-[0.08em] text-ink transition-colors hover:bg-accent-deep hover:text-white"
-            >
-              Apply now
-            </a>
-          </nav>
-        </div>
-      </header>
+      {/* Global nav — matches the marketing pages (logo + same links + mobile hamburger). */}
+      <BlogHeader />
 
       <main className="flex-1">{children}</main>
 

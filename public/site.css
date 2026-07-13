@@ -583,3 +583,46 @@ body.subpage .btn--ghost{--fg:var(--ink);border-color:var(--line)}
 body.subpage .btn--ghost:hover{background:rgba(0,0,0,.05);border-color:var(--ink)}
 body.subpage .cta-band .btn--ghost{--fg:#fff;border-color:rgba(255,255,255,.4)}
 body.subpage .cta-band .btn--ghost:hover{background:rgba(255,255,255,.08);border-color:#fff}
+
+/* ============================================================
+   SUBPAGE MOBILE NAV — hamburger + dropdown (matches home's 900px breakpoint)
+   ============================================================ */
+.subnav__toggle{display:none;margin-left:auto;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:0;cursor:pointer;padding:0}
+.subnav__toggle .bars,.subnav__toggle .bars::before,.subnav__toggle .bars::after{content:"";display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .22s var(--ease),opacity .22s var(--ease)}
+.subnav__toggle .bars{position:relative}
+.subnav__toggle .bars::before{position:absolute;top:-7px}
+.subnav__toggle .bars::after{position:absolute;top:7px}
+.subnav__toggle[aria-expanded="true"] .bars{background:transparent}
+.subnav__toggle[aria-expanded="true"] .bars::before{top:0;transform:rotate(45deg)}
+.subnav__toggle[aria-expanded="true"] .bars::after{top:0;transform:rotate(-45deg)}
+
+@media(max-width:900px){
+  .subnav__inner{position:relative;flex-wrap:nowrap}
+  .subnav__toggle{display:inline-flex}
+  .subnav__links{position:absolute;left:0;right:0;top:100%;margin:0;flex-direction:column;align-items:stretch;gap:0;background:var(--ink);border-top:1px solid var(--line-dark);box-shadow:0 24px 40px -20px rgba(0,0,0,.6);padding:6px 0 12px;display:none}
+  .subnav__links.open{display:flex}
+  .subnav__links a{padding:15px var(--gutter);font-size:1.05rem;border-bottom:1px solid var(--ink-3)}
+  .subnav__links .btn{margin:14px var(--gutter) 2px;justify-content:center;min-height:52px}
+}
+
+/* ============================================================
+   NAV DROPDOWN (e.g. "Locations") — subpages
+   ============================================================ */
+.navdrop{position:relative;display:inline-flex}
+.subnav__links .navdrop__btn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:#fff;font-family:inherit;font-weight:600;font-size:.95rem;cursor:pointer;padding:0}
+.subnav__links .navdrop__btn:hover{color:var(--accent)}
+.navdrop__btn .caret{font-size:.7em;line-height:1;transition:transform .2s var(--ease)}
+.navdrop.open .navdrop__btn .caret{transform:rotate(180deg)}
+.navdrop__menu{display:none;position:absolute;top:calc(100% + 12px);left:0;min-width:230px;background:var(--ink-2);border:1px solid var(--line-dark);border-radius:12px;padding:8px;box-shadow:0 24px 50px -20px rgba(0,0,0,.7);z-index:60}
+.navdrop.open .navdrop__menu{display:block}
+.navdrop__menu a{display:block;padding:11px 12px;border-radius:8px;color:#fff;font-weight:600;font-size:.94rem}
+.navdrop__menu a:hover{background:rgba(255,255,255,.08);color:var(--accent)}
+.navdrop__menu .soon{display:block;padding:8px 12px 4px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-dark);font-weight:700}
+
+@media(max-width:900px){
+  .subnav__links .navdrop{display:block;width:100%}
+  .subnav__links .navdrop__btn{width:100%;justify-content:space-between;padding:15px var(--gutter);border-bottom:1px solid var(--ink-3);font-size:1.05rem}
+  .subnav__links .navdrop__menu{position:static;min-width:0;background:transparent;border:0;border-radius:0;box-shadow:none;padding:0}
+  .subnav__links .navdrop__menu a{padding:13px var(--gutter) 13px calc(var(--gutter) + 18px);border-bottom:1px solid var(--ink-3);font-size:1rem}
+  .subnav__links .navdrop__menu .soon{padding-left:calc(var(--gutter) + 18px)}
+}

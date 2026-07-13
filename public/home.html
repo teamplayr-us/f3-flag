@@ -623,6 +623,18 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
   .reveal{opacity:1;transform:none}
   .hero__urgency .pulse{animation:none}
 }
+/* Locations nav dropdown (desktop) — pure CSS hover/focus, no JS */
+.nav__links .navdrop{position:relative;display:inline-flex}
+.nav__links .navdrop__btn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;color:#fff;font-family:inherit;font-weight:600;font-size:inherit;cursor:pointer;padding:0}
+.nav__links .navdrop__btn:hover{color:var(--accent)}
+.nav__links .navdrop__btn .caret{font-size:.7em;line-height:1;transition:transform .2s var(--ease)}
+.nav__links .navdrop:hover .navdrop__btn .caret,.nav__links .navdrop:focus-within .navdrop__btn .caret{transform:rotate(180deg)}
+.nav__links .navdrop__menu{display:none;position:absolute;top:100%;left:0;min-width:230px;margin-top:14px;background:var(--ink-2);border:1px solid var(--line-dark);border-radius:12px;padding:8px;box-shadow:0 24px 50px -20px rgba(0,0,0,.7);z-index:60}
+.nav__links .navdrop__menu::before{content:"";position:absolute;top:-14px;left:0;right:0;height:14px}
+.nav__links .navdrop:hover .navdrop__menu,.nav__links .navdrop:focus-within .navdrop__menu{display:block}
+.nav__links .navdrop__menu a{display:block;padding:11px 12px;border-radius:8px;color:#fff;font-weight:600;font-size:.94rem}
+.nav__links .navdrop__menu a:hover{background:rgba(255,255,255,.08);color:var(--accent)}
+.nav__links .navdrop__menu .soon{display:block;padding:8px 12px 4px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-dark);font-weight:700}
 </style>
 </head>
 <body>
@@ -645,6 +657,13 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
     <nav class="nav__links" aria-label="Primary">
       <a href="/program">The Program</a>
       <a href="/coaches">Coaching Team</a>
+      <div class="navdrop">
+        <button class="navdrop__btn" type="button" aria-haspopup="true" aria-expanded="false">Locations <span class="caret" aria-hidden="true">&#9662;</span></button>
+        <div class="navdrop__menu" role="menu">
+          <a href="/flag-football-training-dallas-fort-worth" role="menuitem">Dallas&#8211;Fort Worth</a>
+          <span class="soon">More coming soon</span>
+        </div>
+      </div>
       <a href="#curriculum">Curriculum</a>
       <a href="#fit">Who It's For</a>
       <a href="/faq">FAQ</a>
@@ -661,6 +680,7 @@ fieldset:first-of-type .fs-head{border-top:0;padding-top:0}
   <div class="nav__drawer" id="navDrawer" aria-label="Mobile menu" hidden>
     <a href="/program">The Program</a>
     <a href="/coaches">Coaching Team</a>
+    <a href="/flag-football-training-dallas-fort-worth">Dallas&#8211;Fort Worth</a>
     <a href="#curriculum">Curriculum</a>
     <a href="#fit">Who It's For</a>
     <a href="/faq">FAQ</a>
