@@ -2,5 +2,105 @@
 @tailwind components;
 @tailwind utilities;
 
-/* These styles apply only to the Next.js app (blog + studio). The marketing
-   landing page at "/" is a standalone static file and is never affected. */
+/* ============================================================================
+   DESIGN TOKENS
+   Color values are injected from club.config.ts via an inline style on <html>
+   (see app/layout.tsx). Everything below derives from those three brand colors,
+   so re-skinning a club never requires editing CSS.
+   ============================================================================ */
+:root {
+  /* --c-brand / --c-ink / --c-accent are set at runtime from club.config.ts */
+  --c-brand-deep: color-mix(in srgb, var(--c-brand) 82%, #000);
+  --c-ink-800: color-mix(in srgb, var(--c-ink) 92%, #fff);
+  --c-ink-700: color-mix(in srgb, var(--c-ink) 82%, #fff);
+  --c-paper: #f3f4f3;
+  --c-paper-2: #e8e9e7;
+  --c-line: rgba(26, 29, 31, 0.12);
+  --c-line-dark: rgba(255, 255, 255, 0.14);
+  --c-muted: #5c6066;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 88px; /* offset sticky nav on anchor jumps */
+}
+
+body {
+  background: var(--c-ink);
+  color: var(--c-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display headings use the condensed display font, tight and uppercase. */
+.font-display {
+  letter-spacing: 0.005em;
+}
+
+/* ============================================================================
+   ANGLED / SHARP GEOMETRY  — echoes the italic, slashed cut of the F3 mark.
+   ============================================================================ */
+
+/* Clipped top-right + bottom-left corners (card + button chip look). */
+.clip-chip {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+}
+.clip-chip-lg {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+}
+/* Slashed left edge — the signature diagonal. */
+.clip-slash {
+  clip-path: polygon(14px 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Diagonal section divider (a slanted edge between two colored bands). */
+.divider-slash-top {
+  clip-path: polygon(0 34px, 100% 0, 100% 100%, 0 100%);
+}
+.divider-slash-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 34px), 0 100%);
+}
+
+/* Skew helpers for the "italic" motion of the mark. */
+.skew-tag {
+  transform: skewX(-9deg);
+}
+.skew-tag > * {
+  transform: skewX(9deg);
+}
+
+/* Thin brand rule with a slashed cap. */
+.rule-brand {
+  height: 4px;
+  width: 56px;
+  background: var(--c-brand);
+  clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
+}
+
+/* Accessible focus ring across the site. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--c-brand);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

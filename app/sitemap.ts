@@ -1,37 +1,34 @@
 import type { MetadataRoute } from 'next';
 
-import { sanityFetch } from '@/sanity/lib/fetch';
-import { postSlugsQuery } from '@/sanity/lib/queries';
+import { club } from '@/club.config';
 
-const BASE_URL = 'https://www.f3flag.com';
+export const dynamic = 'force-static';
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  // Hand-built marketing pages + the blog index.
-  const staticPaths: { path: string; priority: number; changeFrequency: 'weekly' | 'monthly' }[] = [
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = club.url.replace(/\/$/, '');
+
+  const staticPaths: {
+    path: string;
+    priority: number;
+    changeFrequency: 'weekly' | 'monthly';
+  }[] = [
     { path: '', priority: 1.0, changeFrequency: 'weekly' },
-    { path: 'program', priority: 0.8, changeFrequency: 'monthly' },
-    { path: 'coaches', priority: 0.8, changeFrequency: 'monthly' },
-    { path: 'coaches/morris-claiborne', priority: 0.7, changeFrequency: 'monthly' },
-    { path: 'coaches/kevin-dickens-jr', priority: 0.7, changeFrequency: 'monthly' },
-    { path: 'coaches/stephanie-raymond', priority: 0.7, changeFrequency: 'monthly' },
-    { path: 'flag-football-training-dallas-fort-worth', priority: 0.8, changeFrequency: 'monthly' },
-    { path: 'faq', priority: 0.6, changeFrequency: 'monthly' },
-    { path: 'blog', priority: 0.7, changeFrequency: 'weekly' },
+    { path: 'teams', priority: 0.9, changeFrequency: 'monthly' },
+    { path: 'schedule', priority: 0.9, changeFrequency: 'weekly' },
+    { path: 'about', priority: 0.7, changeFrequency: 'monthly' },
+    { path: 'register', priority: 0.9, changeFrequency: 'monthly' },
+    { path: 'contact', priority: 0.6, changeFrequency: 'monthly' },
   ];
 
-  const staticEntries: MetadataRoute.Sitemap = staticPaths.map(({ path, priority, changeFrequency }) => ({
-    url: path ? `${BASE_URL}/${path}` : `${BASE_URL}/`,
+  const teamPaths = club.teams.map((t) => ({
+    path: `teams/${t.slug}`,
+    priority: 0.7,
+    changeFrequency: 'monthly' as const,
+  }));
+
+  return [...staticPaths, ...teamPaths].map(({ path, priority, changeFrequency }) => ({
+    url: path ? `${base}/${path}/` : `${base}/`,
     changeFrequency,
     priority,
   }));
-
-  // Blog posts from Sanity (empty if Sanity isn't configured yet).
-  const slugs = (await sanityFetch<string[]>(postSlugsQuery)) ?? [];
-  const postEntries: MetadataRoute.Sitemap = slugs.map((slug) => ({
-    url: `${BASE_URL}/blog/${slug}`,
-    changeFrequency: 'monthly',
-    priority: 0.6,
-  }));
-
-  return [...staticEntries, ...postEntries];
 }

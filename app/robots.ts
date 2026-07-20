@@ -1,16 +1,17 @@
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = 'https://www.f3flag.com';
+import { club } from '@/club.config';
+
+export const dynamic = 'force-static';
 
 export default function robots(): MetadataRoute.Robots {
+  const base = club.url.replace(/\/$/, '');
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      // The embedded Sanity Studio is an admin app, not content to index.
-      disallow: '/studio',
     },
-    sitemap: `${BASE_URL}/sitemap.xml`,
-    host: BASE_URL,
+    sitemap: `${base}/sitemap.xml`,
+    host: base,
   };
 }

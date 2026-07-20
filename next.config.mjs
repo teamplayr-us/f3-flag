@@ -1,30 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // The marketing pages are hand-built static HTML files in /public. We serve
-  // them at clean URLs (no .html) via rewrites. Each page sets a canonical tag
-  // to its clean URL, so the .html paths don't create duplicate-content issues.
-  // The Next.js app itself owns /blog and /studio.
-  async rewrites() {
-    return [
-      { source: '/', destination: '/home.html' },
-      { source: '/coaches', destination: '/coaches.html' },
-      { source: '/coaches/:slug', destination: '/coaches/:slug.html' },
-      { source: '/program', destination: '/program.html' },
-      { source: '/faq', destination: '/faq.html' },
-      {
-        source: '/flag-football-training-dallas-fort-worth',
-        destination: '/flag-football-training-dallas-fort-worth.html',
-      },
-    ];
-  },
+  // Static export — deploys to Vercel, Cloudflare Pages, Netlify, or any static host.
+  // `next build` emits a fully static site to /out.
+  output: 'export',
+
+  // Static export cannot use the Next image optimization server, so images are
+  // served as-authored. Keep source images pre-sized/compressed (see README).
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'cdn.sanity.io',
-      },
-    ],
+    unoptimized: true,
   },
+
+  // Emit /about/index.html instead of /about.html so clean URLs work on any host.
+  trailingSlash: true,
 };
 
 export default nextConfig;

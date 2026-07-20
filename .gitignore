@@ -10,10 +10,7 @@ next-env.d.ts
 
 # production
 /build
-
-# sanity
 /dist
-/.sanity
 
 # misc
 .DS_Store
